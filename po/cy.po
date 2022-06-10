@@ -12,17 +12,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xviewer.HEAD.cy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-26 12:06+0100\n"
-"PO-Revision-Date: 2018-05-08 18:17+0000\n"
-"Last-Translator: Rhoslyn Prys <rprys@yahoo.com>\n"
+"POT-Creation-Date: 2021-11-29 10:03+0000\n"
+"PO-Revision-Date: 2021-12-09 10:30+0000\n"
+"Last-Translator: Rhoslyn Prys <rprys@posteo.net>\n"
 "Language-Team: Cymraeg <gnome-cy@lists.linux.org.uk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : (n != 8 && n != 11) ? "
 "2 : 3;\n"
-"X-Launchpad-Export-Date: 2020-01-06 10:05+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:23+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
+"Language: cy\n"
 
 #. Translaters: This string is for a toggle to display a toolbar.
 #. * The name of the toolbar is automatically computed from the widgets
@@ -64,36 +65,36 @@ msgstr "Tynnu'r bar offer hwn"
 msgid "Separator"
 msgstr "Ymwahanydd"
 
-#: ../data/xviewer-app-menu.xml.h:1 ../src/xviewer-window.c:4108
+#: ../data/xviewer-app-menu.xml.h:1 ../src/xviewer-window.c:4234
 msgid "_View"
 msgstr "_Golwg"
 
-#: ../data/xviewer-app-menu.xml.h:2 ../src/xviewer-window.c:4131
+#: ../data/xviewer-app-menu.xml.h:2 ../src/xviewer-window.c:4259
 msgid "_Toolbar"
 msgstr "Bar _Offer"
 
-#: ../data/xviewer-app-menu.xml.h:3 ../src/xviewer-window.c:4134
+#: ../data/xviewer-app-menu.xml.h:3 ../src/xviewer-window.c:4262
 msgid "_Statusbar"
 msgstr "Bar _Statws"
 
-#: ../data/xviewer-app-menu.xml.h:4 ../src/xviewer-window.c:4137
+#: ../data/xviewer-app-menu.xml.h:4 ../src/xviewer-window.c:4265
 msgid "_Image Gallery"
 msgstr "_Oriel Delweddau"
 
-#: ../data/xviewer-app-menu.xml.h:5 ../src/xviewer-window.c:4140
+#: ../data/xviewer-app-menu.xml.h:5 ../src/xviewer-window.c:4268
 msgid "Side _Pane"
 msgstr "Paen _Ochr"
 
-#: ../data/xviewer-app-menu.xml.h:6 ../src/xviewer-window.c:4119
+#: ../data/xviewer-app-menu.xml.h:6 ../src/xviewer-window.c:4247
 msgid "Prefere_nces"
 msgstr "_Dewisiadau"
 
 #: ../data/xviewer-app-menu.xml.h:7 ../data/xviewer-preferences-dialog.ui.h:2
-#: ../src/xviewer-window.c:4111
+#: ../src/xviewer-window.c:4237
 msgid "_Help"
 msgstr "_Cymorth"
 
-#: ../data/xviewer-app-menu.xml.h:8 ../src/xviewer-window.c:4125
+#: ../data/xviewer-app-menu.xml.h:8 ../src/xviewer-window.c:4253
 msgid "_About"
 msgstr "_Ynghylch"
 
@@ -134,7 +135,7 @@ msgstr "Pori a throi delweddau"
 msgid "Picture;Slideshow;Graphics;"
 msgstr "Darluniau;Sioe Sleidiau;Graffigau"
 
-#: ../data/xviewer-image-properties-dialog.ui.h:1 ../src/xviewer-window.c:5096
+#: ../data/xviewer-image-properties-dialog.ui.h:1 ../src/xviewer-window.c:5375
 msgid "Image Properties"
 msgstr "Priodweddau Delweddau"
 
@@ -147,7 +148,7 @@ msgid "_Next"
 msgstr "_Nesaf"
 
 #: ../data/xviewer-image-properties-dialog.ui.h:4
-#: ../data/xviewer-preferences-dialog.ui.h:3 ../src/xviewer-window.c:4116
+#: ../data/xviewer-preferences-dialog.ui.h:3 ../src/xviewer-window.c:4244
 msgid "_Close"
 msgstr "_Cau"
 
@@ -268,8 +269,8 @@ msgstr "Cadw Fel"
 #: ../src/xviewer-close-confirmation-dialog.c:172
 #: ../src/xviewer-error-message-area.c:119 ../src/xviewer-file-chooser.c:456
 #: ../src/xviewer-file-chooser.c:464 ../src/xviewer-file-chooser.c:472
-#: ../src/xviewer-window.c:3423 ../src/xviewer-window.c:3426
-#: ../src/xviewer-window.c:3691
+#: ../src/xviewer-window.c:3464 ../src/xviewer-window.c:3468
+#: ../src/xviewer-window.c:3735
 msgid "_Cancel"
 msgstr "_Diddymu"
 
@@ -357,7 +358,6 @@ msgid "As custom color:"
 msgstr "Fel lliw cyfaddas:"
 
 #: ../data/xviewer-preferences-dialog.ui.h:10
-#: ../data/org.x.viewer.gschema.xml.in.h:3
 msgid "Background Color"
 msgstr "Lliw Cefndir"
 
@@ -407,256 +407,79 @@ msgid "_Loop sequence"
 msgstr "_Ailgychwyn wedi cyrraedd yr un olaf"
 
 #: ../data/xviewer-preferences-dialog.ui.h:23
+msgid "Control"
+msgstr "Rheoli"
+
+#: ../data/xviewer-preferences-dialog.ui.h:24
+msgid "Pause and resume with the spacebar"
+msgstr "Oedi a pharhau gyda'r bylchwr"
+
+#: ../data/xviewer-preferences-dialog.ui.h:25
 msgid "Slideshow"
 msgstr "Sioe Sleidiau"
 
-#: ../data/xviewer-preferences-dialog.ui.h:24
+#: ../data/xviewer-preferences-dialog.ui.h:26
+msgid "Scroll Wheel"
+msgstr "Olwyn Sgrolio"
+
+#: ../data/xviewer-preferences-dialog.ui.h:27
+msgid "Wheel"
+msgstr "Olwyn"
+
+#: ../data/xviewer-preferences-dialog.ui.h:28
+msgid "Zoom"
+msgstr "Chwyddo"
+
+#: ../data/xviewer-preferences-dialog.ui.h:29
+msgid "Vertical Scrolling"
+msgstr "Sgrolio Fertigol"
+
+#: ../data/xviewer-preferences-dialog.ui.h:30
+msgid "Horizontal Scrolling"
+msgstr "Sgrolio Llorweddol"
+
+#: ../data/xviewer-preferences-dialog.ui.h:31
+msgid "Previous/Next Image"
+msgstr "Delwedd Ddiwethaf/Nesaf"
+
+#: ../data/xviewer-preferences-dialog.ui.h:32
+msgid "Rotate 90 degrees"
+msgstr "Troi 90 gradd"
+
+#: ../data/xviewer-preferences-dialog.ui.h:33
+msgid "No Action"
+msgstr "Dim Gweithred"
+
+#: ../data/xviewer-preferences-dialog.ui.h:34
+msgid "Shift + Wheel"
+msgstr "Shift + Olwyn"
+
+#: ../data/xviewer-preferences-dialog.ui.h:35
+msgid "Control + Wheel"
+msgstr "Control + Olwyn"
+
+#: ../data/xviewer-preferences-dialog.ui.h:36
+msgid "Shift + Control + Wheel"
+msgstr "Shift + Control + Olwyn"
+
+#: ../data/xviewer-preferences-dialog.ui.h:37
+msgid "Tilt Wheel"
+msgstr "Olwyn Gogwydd"
+
+#: ../data/xviewer-preferences-dialog.ui.h:38
+msgid "Mouse"
+msgstr "Llygoden"
+
+#: ../data/xviewer-preferences-dialog.ui.h:39
 msgid "Plugins"
 msgstr "Ategion"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:1
-msgid "Automatic orientation"
-msgstr "Cyfeiriadedd awtomatig"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:2
-msgid ""
-"Whether the image should be rotated automatically based on EXIF orientation."
-msgstr ""
-"P'un ai ddylai delwedd gael ei throi'n awtomatig ar sail cyfeiriadedd EXIF."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:4
-msgid ""
-"The color that is used to fill the area behind the image. If the use-"
-"background-color key is not set, the color is determined by the active GTK+ "
-"theme instead."
-msgstr ""
-"Y lliw sy'n cael ei ddefnyddio i lanw'r gofod y tu ól i ddelwedd. Os nad "
-"yw'r allwedd defnyddio lliw cefndir wedi ei osod, mae'r lliw yn cael ei "
-"bennu gan y tema GTK+ gweithredol yn lle hynny."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:5
-msgid "Interpolate Image"
-msgstr "Rhyngosod Delwedd"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:6
-msgid ""
-"Whether the image should be interpolated on zoom-out. This leads to better "
-"quality but is somewhat slower than non-interpolated images."
-msgstr ""
-"P'un ai ddylai delwedd gael ei rhyngosod wrth ei chwyddo allan. Mae hyn yn "
-"cynnig gwell ansawdd ond mae rhywfaint yn arafach na delweddau heb eu "
-"rhyngosod."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:7
-msgid "Extrapolate Image"
-msgstr "Allosod delwedd"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:8
-msgid ""
-"Whether the image should be extrapolated on zoom-in. This leads to blurry "
-"quality and is somewhat slower than non-extrapolated images."
-msgstr ""
-"P'un ai ddylai delwedd gael ei hallosod wrth ei chwyddo allan. Mae hyn yn "
-"cynnig salach ansawdd ond mae rhywfaint yn arafach na delweddau heb eu "
-"hallosod."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:9
-msgid "Transparency indicator"
-msgstr "Dangosydd tryloywder"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:10
-msgid ""
-"Determines how transparency should be indicated. Valid values are "
-"CHECK_PATTERN, COLOR and NONE. If COLOR is chosen, then the trans-color key "
-"determines the color value used."
-msgstr ""
-"Yn pennu sut ddylai tryloywder gael ei ddangos. Mae gwerthoedd dilys yn "
-"cynnwys CHECK_PATTERN, COLOR a NONE. Os yw COLOR yn cael ei ddewis yna mae'r "
-"fysell traws-liw yn pennu gwerth y lliw sy'n cael ei ddefnyddio."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:11
-msgid "Scroll wheel zoom"
-msgstr "Chwyddo olwyn sgrolio"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:12
-msgid "Whether the scroll wheel should be used for zooming."
-msgstr "P'un ai ddylai olwyn sgrolio gael ei ddefnyddio ar gyfer chwyddo."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:13
-msgid "Zoom multiplier"
-msgstr "Lluosogwr chwyddo"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:15
-#, no-c-format
-msgid ""
-"The multiplier to be applied when using the mouse scroll wheel for zooming. "
-"This value defines the zooming step used for each scroll event. For example, "
-"0.05 results in a 5% zoom increment for each scroll event and 1.00 result in "
-"a 100% zoom increment."
-msgstr ""
-"Y luosogydd i'w ddefnyddio wrth ddefnyddio olwyn sgrolio'r llygoden wrth "
-"chwyddo. Mae'r gwerth yn diffinio'r cam chwyddo sy'n cael ei ddefnyddio ar "
-"gyfer pob digwyddiad sgrolio. Er enghraifft, mae 0.05 yn achosi cynnydd "
-"chwyddo o 5% ar gyfer pob digwyddiad sgrolio ac mae 1.00 yn achosi cynnydd o "
-"100%."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:16
-msgid "Transparency color"
-msgstr "Lliw tryloywder"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:17
-msgid ""
-"If the transparency key has the value COLOR, then this key determines the "
-"color which is used for indicating transparency."
-msgstr ""
-"Os COLOR yw gwerth yr allwedd tryloywder, yna mae'r allwedd yma'n "
-"penderfynu'r lliw a ddefnyddir ar gyfer dangos tryloywder."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:18
-msgid "Use a custom background color"
-msgstr "Defnyddio lliw cefndir cyfaddas"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:19
-msgid ""
-"If this is active, the color set by the background-color key will be used to "
-"fill the area behind the image. If it is not set, the current GTK+ theme "
-"will determine the fill color."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:20
-msgid "Loop through the image sequence"
-msgstr "Ailgychwyn y dilyniant delweddau wedi cyrraedd ei ddiwedd"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:21
-msgid "Whether the sequence of images should be shown in an endless loop."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:23
-#, no-c-format
-msgid "Allow zoom greater than 100% initially"
-msgstr "Caniatáu chwyddo i fwy na 100% wrth gychwyn"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:24
-msgid ""
-"If this is set to FALSE small images will not be stretched to fit into the "
-"screen initially."
-msgstr ""
-"Os mai FALSE yw hwn, fydd delweddau bychain ddim yn cael eu hymestyn i "
-"lenwi'r sgrin wrth gychwyn."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:25
-msgid "Delay in seconds until showing the next image"
-msgstr "Y saib mewn eiliadau cyn dangos y ddelwedd nesaf"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:26
-msgid ""
-"A value greater than 0 determines the seconds an image stays on screen until "
-"the next one is shown automatically. Zero disables the automatic browsing."
-msgstr ""
-"Os yw'r gwerth yn fwy na 0, dyma'r nifer o eiliadau bydd delwedd yn aros ar "
-"y sgrin cyn i'r un nesaf gael ei dangos yn awtomatig. Mae gwerth o 0 yn "
-"analluogi'r pori awtomatig."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:27
-msgid "Show/Hide the window toolbar."
-msgstr "Dangos/Cuddio ym mar offer ffenestr."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:28
-msgid "Show/Hide the window statusbar."
-msgstr "Dangos/Cuddio y bar statws ffenestr."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:29
-msgid "Show/Hide the image gallery pane."
-msgstr "Dangos/Cuddio paen yr oriel delweddau."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:30
-msgid ""
-"Image gallery pane position. Set to 0 for bottom; 1 for left; 2 for top; 3 "
-"for right."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:31
-msgid "Whether the image gallery pane should be resizable."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:32
-msgid "Show/Hide the window side pane."
-msgstr "Dangos/Cuddio paen ochr ffenestr."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:33
-msgid "Show/Hide the image gallery pane scroll buttons."
-msgstr "Dangos/Cuddio botymau sgrolio paen oriel delweddau"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:34
-msgid "Close main window without asking to save changes."
-msgstr "Cau'r brif ffenestr heb ofyn i gadw newidiadau."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:35
-msgid "Trash images without asking"
-msgstr "Dileu delweddau heb ofyn"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:36
-msgid ""
-"If activated, Xviewer won't ask for confirmation when moving images to the "
-"trash. It will still ask if any of the files cannot be moved to the trash "
-"and would be deleted instead."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:37
-msgid ""
-"Whether the file chooser should show the user's pictures folder if no images "
-"are loaded."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:38
-msgid ""
-"If activated and no image is loaded in the active window, the file chooser "
-"will display the user's pictures folder using the XDG special user "
-"directories. If deactivated or the pictures folder has not been set up, it "
-"will show the current working directory."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:39
-msgid ""
-"Whether the metadata list in the properties dialog should have its own page."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:40
-msgid ""
-"If activated, the detailed metadata list in the properties dialog will be "
-"moved to its own page in the dialog. This should make the dialog more usable "
-"on smaller screens, e.g. as used by netbooks. If disabled, the widget will "
-"be embedded on the \"Metadata\" page."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:41
-msgid "External program to use for editing images"
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:42
-msgid ""
-"The desktop file name (including the \".desktop\") of the application to use "
-"for editing images (when the \"Edit Image\" toolbar button is clicked). Set "
-"to the empty string to disable this feature."
-msgstr ""
-
-#: ../data/org.x.viewer.gschema.xml.in.h:43
-msgid "Active plugins"
-msgstr "Ategion sy'n weithredol"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:44
-msgid ""
-"List of active plugins. It doesn't contain the \"Location\" of the active "
-"plugins. See the .xviewer-plugin file for obtaining the \"Location\" of a "
-"given plugin."
-msgstr ""
 
 #: ../src/xviewer-close-confirmation-dialog.c:166
 msgid "Close _without Saving"
 msgstr "Cau _heb Gadw"
 
 #: ../src/xviewer-close-confirmation-dialog.c:178
-#: ../src/xviewer-file-chooser.c:465 ../src/xviewer-window.c:4146
+#: ../src/xviewer-file-chooser.c:465 ../src/xviewer-window.c:4274
 msgid "_Save"
 msgstr "_Cadw"
 
@@ -666,12 +489,12 @@ msgstr "Cwestiwn"
 
 #: ../src/xviewer-close-confirmation-dialog.c:391
 msgid "If you don't save, your changes will be lost."
-msgstr ""
+msgstr "Os na fyddwch yn ei chadw, bydd y newidiadau'n cael eu colli."
 
 #: ../src/xviewer-close-confirmation-dialog.c:437
 #, c-format
 msgid "Save changes to image \"%s\" before closing?"
-msgstr ""
+msgstr "Cadw newidiadau i'r ddelwedd \"%s\" cyn cau?"
 
 #: ../src/xviewer-close-confirmation-dialog.c:652
 #, c-format
@@ -679,44 +502,51 @@ msgid "There is %d image with unsaved changes. Save changes before closing?"
 msgid_plural ""
 "There are %d images with unsaved changes. Save changes before closing?"
 msgstr[0] ""
+"Y mae %d delwedd gyda newidiadau heb eu cadw. Cadw newidiadau cyn cau?"
 msgstr[1] ""
+"Y mae %d delwedd gyda newidiadau heb eu cadw. Cadw newidiadau cyn cau?"
+msgstr[2] ""
+"Y mae %d delwedd gyda newidiadau heb eu cadw. Cadw newidiadau cyn cau?"
+msgstr[3] ""
+"Y mae %d delwedd gyda newidiadau heb eu cadw. Cadw newidiadau cyn cau?"
 
 #: ../src/xviewer-close-confirmation-dialog.c:669
 msgid "S_elect the images you want to save:"
-msgstr ""
+msgstr "_Dewiswch y delweddau rydych chi am eu cadw:"
 
 #. Secondary label
 #: ../src/xviewer-close-confirmation-dialog.c:688
 msgid "If you don't save, all your changes will be lost."
 msgstr ""
+"Os na wnewch chi gadw, bydd eich holl newidiadau'n cael colli am byth."
 
-#: ../src/xviewer-error-message-area.c:124 ../src/xviewer-window.c:875
-#: ../src/xviewer-window.c:4200
+#: ../src/xviewer-error-message-area.c:124 ../src/xviewer-window.c:882
+#: ../src/xviewer-window.c:4334
 msgid "_Reload"
 msgstr "_Ail-lwytho"
 
-#: ../src/xviewer-error-message-area.c:129 ../src/xviewer-window.c:4152
+#: ../src/xviewer-error-message-area.c:129 ../src/xviewer-window.c:4280
 msgid "Save _As…"
-msgstr ""
+msgstr "Cadw _Fel"
 
 #: ../src/xviewer-error-message-area.c:171
 #, c-format
 msgid "Could not load image '%s'."
-msgstr ""
+msgstr "Methu llwytho delwedd '%s'."
 
 #: ../src/xviewer-error-message-area.c:213
 #, c-format
 msgid "Could not save image '%s'."
-msgstr ""
+msgstr "Methu cadw delwedd '%s'."
 
 #: ../src/xviewer-error-message-area.c:256
 #, c-format
 msgid "No images found in '%s'."
-msgstr ""
+msgstr "Heb ganfod delweddau yn '%s'."
 
 #: ../src/xviewer-error-message-area.c:263
 msgid "The given locations contain no images."
-msgstr ""
+msgstr "Nid yw'r lleoliadau yn cynnwys unrhyw ddelweddau."
 
 #: ../src/xviewer-metadata-details.c:65
 msgid "Camera"
@@ -752,11 +582,11 @@ msgstr "XMP IPTC"
 
 #: ../src/xviewer-metadata-details.c:74
 msgid "XMP Rights Management"
-msgstr ""
+msgstr "Rheoli Hawliau XMP"
 
 #: ../src/xviewer-metadata-details.c:75
 msgid "XMP Other"
-msgstr ""
+msgstr "XMP Arall"
 
 #: ../src/xviewer-metadata-details.c:251
 msgid "Tag"
@@ -809,17 +639,19 @@ msgstr "%.1f (ffilm 35mm)"
 
 #: ../src/xviewer-file-chooser.c:119
 msgid "File format is unknown or unsupported"
-msgstr ""
+msgstr "Mae fformat ffeil yn anhysbys neu heb gefnogaeth"
 
 #: ../src/xviewer-file-chooser.c:124
 msgid ""
 "Image Viewer could not determine a supported writable file format based on "
 "the filename."
 msgstr ""
+"Nid yw'r Dangosydd Delweddau bennu fformat ffeil ysgrifenadwy â chymorth yn "
+"seiliedig ar enw'r ffeil."
 
 #: ../src/xviewer-file-chooser.c:125
 msgid "Please try a different file extension like .png or .jpg."
-msgstr ""
+msgstr "Rhowch gynnig ar estyniad ffeil gwahanol fel .png neu .jpg."
 
 #. Filter name: First description then file extension, eg. "The PNG-Format (*.png)".
 #: ../src/xviewer-file-chooser.c:160
@@ -833,7 +665,7 @@ msgstr "Pob ffeil"
 
 #: ../src/xviewer-file-chooser.c:217
 msgid "Supported image files"
-msgstr ""
+msgstr "Ffeiliau delwedd sy'n cael eu cynnal"
 
 #. Pixel size of image: width x height in pixel
 #: ../src/xviewer-file-chooser.c:289 ../src/xviewer-metadata-sidebar.c:234
@@ -870,29 +702,29 @@ msgstr "Trawsffurfio delwedd heb ei llwytho."
 #: ../src/xviewer-image.c:641
 #, c-format
 msgid "Transformation failed."
-msgstr ""
+msgstr "Methodd y trawsnewid."
 
-#: ../src/xviewer-image.c:1138
+#: ../src/xviewer-image.c:1261
 #, c-format
 msgid "EXIF not supported for this file format."
 msgstr "Ni chynhelir EXIF ar gyfer ffeil o'r math yma."
 
-#: ../src/xviewer-image.c:1287
+#: ../src/xviewer-image.c:1410
 #, c-format
 msgid "Image loading failed."
-msgstr ""
+msgstr "Methodd llwytho delwedd."
 
-#: ../src/xviewer-image.c:1868 ../src/xviewer-image.c:1988
+#: ../src/xviewer-image.c:1991 ../src/xviewer-image.c:2111
 #, c-format
 msgid "No image loaded."
 msgstr "Dim delwedd wedi ei lwytho."
 
-#: ../src/xviewer-image.c:1876 ../src/xviewer-image.c:1997
+#: ../src/xviewer-image.c:1999 ../src/xviewer-image.c:2120
 #, c-format
 msgid "You do not have the permissions necessary to save the file."
-msgstr ""
+msgstr "Nid oes gennych y caniatâd angenrheidiol i gadw'r ffeil."
 
-#: ../src/xviewer-image.c:1886 ../src/xviewer-image.c:2008
+#: ../src/xviewer-image.c:2009 ../src/xviewer-image.c:2131
 #, c-format
 msgid "Temporary file creation failed."
 msgstr "Methwyd creu ffeil dros dro"
@@ -909,111 +741,114 @@ msgstr "Methwyd neilltuo cof er mwyn llwytho ffeil JPEG"
 
 #: ../src/xviewer-metadata-sidebar.c:247 ../src/xviewer-properties-dialog.c:156
 msgid "Unknown"
-msgstr ""
+msgstr "Anhysbys"
 
 #: ../src/xviewer-metadata-sidebar.c:505
 msgid "File size:"
-msgstr ""
+msgstr "Maint ffeil:"
 
 #: ../src/xviewer-metadata-sidebar.c:521 ../src/xviewer-properties-dialog.c:737
-#: ../src/xviewer-window.c:4156
+#: ../src/xviewer-window.c:4284
 msgid "Show the folder which contains this file in the file manager"
-msgstr ""
+msgstr "Dangoswch y ffolder sy'n cynnwys y ffeil hon yn y rheolwr ffeiliau"
 
-#: ../src/xviewer-preferences-dialog.c:125
+#: ../src/xviewer-preferences-dialog.c:134
 #, c-format
 msgid "%lu second"
 msgid_plural "%lu seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu eiliad"
+msgstr[1] "%lu eiliad"
+msgstr[2] "%lu eiliad"
+msgstr[3] "%lu eiliad"
 
 #: ../src/xviewer-print.c:371
 msgid "Image Settings"
-msgstr ""
+msgstr "Gosodiadau Delwedd"
 
 #: ../src/xviewer-print-image-setup.c:897
 msgid "Image"
-msgstr ""
+msgstr "Delwedd"
 
 #: ../src/xviewer-print-image-setup.c:898
 msgid "The image whose printing properties will be set up"
-msgstr ""
+msgstr "Y ddelwedd y bydd ei phriodweddau argraffu yn cael eu gosod"
 
 #: ../src/xviewer-print-image-setup.c:904
 msgid "Page Setup"
-msgstr ""
+msgstr "Gosodiad Tudalen"
 
 #: ../src/xviewer-print-image-setup.c:905
 msgid "The information for the page where the image will be printed"
 msgstr ""
+"Y wybodaeth ar gyfer y dudalen lle bydd y ddelwedd yn cael ei hargraffu"
 
 #: ../src/xviewer-print-image-setup.c:931
 msgid "Position"
-msgstr ""
+msgstr "Safle"
 
 #: ../src/xviewer-print-image-setup.c:935
 msgid "_Left:"
-msgstr ""
+msgstr "_Chwith:"
 
 #: ../src/xviewer-print-image-setup.c:937
 msgid "_Right:"
-msgstr ""
+msgstr "_De:"
 
 #: ../src/xviewer-print-image-setup.c:938
 msgid "_Top:"
-msgstr ""
+msgstr "_Brig:"
 
 #: ../src/xviewer-print-image-setup.c:939
 msgid "_Bottom:"
-msgstr ""
+msgstr "_Gwaelod:"
 
 #: ../src/xviewer-print-image-setup.c:942
 msgid "C_enter:"
-msgstr ""
+msgstr "C_anol:"
 
 #: ../src/xviewer-print-image-setup.c:947
 msgid "None"
-msgstr ""
+msgstr "Dim"
 
 #: ../src/xviewer-print-image-setup.c:949
 msgid "Horizontal"
-msgstr ""
+msgstr "Llorweddol"
 
 #: ../src/xviewer-print-image-setup.c:951
 msgid "Vertical"
-msgstr ""
+msgstr "Fertigol"
 
 #: ../src/xviewer-print-image-setup.c:953
 msgid "Both"
-msgstr ""
+msgstr "Y Ddau"
 
 #: ../src/xviewer-print-image-setup.c:969
 msgid "Size"
-msgstr ""
+msgstr "Maint"
 
 #: ../src/xviewer-print-image-setup.c:972
 msgid "_Width:"
-msgstr ""
+msgstr "_Lled:"
 
 #: ../src/xviewer-print-image-setup.c:974
 msgid "_Height:"
-msgstr ""
+msgstr "_Uchder:"
 
 #: ../src/xviewer-print-image-setup.c:977
 msgid "_Scaling:"
-msgstr ""
+msgstr "_Graddio:"
 
 #: ../src/xviewer-print-image-setup.c:988
 msgid "_Unit:"
-msgstr ""
+msgstr "_Uned:"
 
 #: ../src/xviewer-print-image-setup.c:993
 msgid "Millimeters"
-msgstr ""
+msgstr "Milimetrau"
 
 #: ../src/xviewer-print-image-setup.c:995
 msgid "Inches"
-msgstr ""
+msgstr "Modfeddi"
 
 #: ../src/xviewer-print-image-setup.c:1024
 msgid "Preview"
@@ -1036,11 +871,11 @@ msgstr "fel y mae"
 #: ../src/xviewer-statusbar.c:126
 #, c-format
 msgid "%d / %d"
-msgstr ""
+msgstr "%d / %d"
 
 #: ../src/xviewer-thumb-view.c:544
 msgid "Taken on"
-msgstr ""
+msgstr "Dyddiad y cymerwyd"
 
 #: ../src/xviewer-uri-converter.c:982
 #, c-format
@@ -1049,7 +884,7 @@ msgstr "Mae o leiaf ddau enw ffeil yr un peth."
 
 #: ../src/xviewer-util.c:68
 msgid "Could not display help for Image Viewer"
-msgstr ""
+msgstr "Methu arddangos cymorth ar gyfer y Dangosydd Delweddau"
 
 #: ../src/xviewer-util.c:116
 msgid " (invalid Unicode)"
@@ -1061,90 +896,100 @@ msgstr " (Unicode annilys)"
 #. * - image height
 #. * - image size in bytes
 #. * - zoom in percent
-#: ../src/xviewer-window.c:540
+#: ../src/xviewer-window.c:547
 #, c-format
 msgid "%i × %i pixel  %s    %i%%"
 msgid_plural "%i × %i pixels  %s    %i%%"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i × %i picsel %s %i%%"
+msgstr[1] "%i × %i picsel %s %i%%"
+msgstr[2] "%i × %i picsel %s %i%%"
+msgstr[3] "%i × %i picsel %s %i%%"
 
-#: ../src/xviewer-window.c:877 ../src/xviewer-window.c:2840
+#: ../src/xviewer-window.c:884 ../src/xviewer-window.c:2880
 msgctxt "MessageArea"
 msgid "Hi_de"
-msgstr ""
+msgstr "C_uddio"
 
 #. The newline character is currently necessary due to a problem
 #. * with the automatic line break.
-#: ../src/xviewer-window.c:887
+#: ../src/xviewer-window.c:894
 #, c-format
 msgid ""
 "The image \"%s\" has been modified by an external application.\n"
 "Would you like to reload it?"
 msgstr ""
+"Mae'r ddelwedd \"%s\" wedi'i haddasu gan raglen allanol.\n"
+"Hoffech chi ei ail-lwytho?"
 
-#: ../src/xviewer-window.c:1051
+#: ../src/xviewer-window.c:1071
 #, c-format
 msgid "Use \"%s\" to open the selected image"
-msgstr ""
+msgstr "Defnyddiwch \"%s\" i agor y ddelwedd a ddewiswyd"
 
 #. Translators: This string is displayed in the statusbar
 #. * while saving images. The tokens are from left to right:
 #. * - the original filename
 #. * - the current image's position in the queue
 #. * - the total number of images queued for saving
-#: ../src/xviewer-window.c:1207
+#: ../src/xviewer-window.c:1227
 #, c-format
 msgid "Saving image \"%s\" (%u/%u)"
-msgstr ""
+msgstr "Yn cadw delwedd \"%s\" (%u / %u)"
 
-#: ../src/xviewer-window.c:1602
+#: ../src/xviewer-window.c:1622
 #, c-format
 msgid "Opening image \"%s\""
-msgstr ""
+msgstr "Yn agor delwedd \"%s\""
 
 #. L10N: This the reason why the screensaver is inhibited.
-#: ../src/xviewer-window.c:2189
+#: ../src/xviewer-window.c:2208
 msgid "Viewing a slideshow"
-msgstr ""
+msgstr "Gwylio sioe sleidiau"
 
-#: ../src/xviewer-window.c:2415
+#: ../src/xviewer-window.c:2455
 #, c-format
 msgid ""
 "Error printing file:\n"
 "%s"
 msgstr ""
+"Ffeil argraffu gwall:\n"
+"%s"
 
-#: ../src/xviewer-window.c:2768 ../src/xviewer-window.c:2783
+#: ../src/xviewer-window.c:2808 ../src/xviewer-window.c:2823
 msgid "Error launching System Settings: "
-msgstr ""
+msgstr "Gwall wrth gychwyn Gosodiadau'r System: "
 
 #. I18N: When setting mnemonics for these strings, watch out to not
 #. clash with mnemonics from xviewer's menubar
-#: ../src/xviewer-window.c:2838
+#: ../src/xviewer-window.c:2878
 msgid "_Open Background Preferences"
-msgstr ""
+msgstr "Agor Dewisiadau Cefndir"
 
 #. The newline character is currently necessary due to a problem
 #. * with the automatic line break.
-#: ../src/xviewer-window.c:2854
+#: ../src/xviewer-window.c:2894
 #, c-format
 msgid ""
 "The image \"%s\" has been set as Desktop Background.\n"
 "Would you like to modify its appearance?"
 msgstr ""
+"Mae'r ddelwedd \"%s\" wedi'i gosod fel Cefndir Bwrdd Gwaith.\n"
+"Hoffech chi addasu ei wedd?"
 
-#: ../src/xviewer-window.c:3321
+#: ../src/xviewer-window.c:3361
 msgid "Saving image locally…"
-msgstr ""
+msgstr "Cadw delwedd yn lleol…"
 
-#: ../src/xviewer-window.c:3399
+#: ../src/xviewer-window.c:3440
 #, c-format
 msgid ""
 "Are you sure you want to remove\n"
 "\"%s\" permanently?"
 msgstr ""
+"Ydych chi'n siŵr eich bod chi am dynnu\n"
+"\"%s\" yn barhaol?"
 
-#: ../src/xviewer-window.c:3402
+#: ../src/xviewer-window.c:3443
 #, c-format
 msgid ""
 "Are you sure you want to remove\n"
@@ -1153,43 +998,53 @@ msgid_plural ""
 "Are you sure you want to remove\n"
 "the %d selected images permanently?"
 msgstr[0] ""
+"Ydych chi'n siŵr eich bod chi am dynnu'r\n"
+"ddelwedd a ddewiswyd yn barhaol?"
 msgstr[1] ""
+"Ydych chi'n siŵr eich bod chi am dynnu'r\n"
+"%d ddelwedd a ddewiswyd yn barhaol?"
+msgstr[2] ""
+"Ydych chi'n siŵr eich bod chi am dynnu'r\n"
+"%d ddelwedd a ddewiswyd yn barhaol?"
+msgstr[3] ""
+"Ydych chi'n siŵr eich bod chi am dynnu'r\n"
+"%d ddelwedd a ddewiswyd yn barhaol?"
 
-#: ../src/xviewer-window.c:3424 ../src/xviewer-window.c:3702
+#: ../src/xviewer-window.c:3465 ../src/xviewer-window.c:3746
 msgid "_Delete"
-msgstr ""
+msgstr "_Dileu"
 
-#: ../src/xviewer-window.c:3427 ../src/xviewer-window.c:3704
+#: ../src/xviewer-window.c:3469 ../src/xviewer-window.c:3748
 msgid "_Yes"
-msgstr ""
+msgstr "_Iawn"
 
 #. add 'dont ask again' button
-#: ../src/xviewer-window.c:3431 ../src/xviewer-window.c:3696
+#: ../src/xviewer-window.c:3474 ../src/xviewer-window.c:3740
 msgid "Do _not ask again during this session"
-msgstr ""
+msgstr "_Peidiwch â gofyn eto yn ystod y sesiwn hon"
 
-#: ../src/xviewer-window.c:3475
+#: ../src/xviewer-window.c:3519
 #, c-format
 msgid "Couldn't retrieve image file"
-msgstr ""
+msgstr "Methu adalw ffeil delwedd"
 
-#: ../src/xviewer-window.c:3491
+#: ../src/xviewer-window.c:3535
 #, c-format
 msgid "Couldn't retrieve image file information"
-msgstr ""
+msgstr "Methu adalw manylion ffeil ddelwedd"
 
-#: ../src/xviewer-window.c:3507 ../src/xviewer-window.c:3763
+#: ../src/xviewer-window.c:3551 ../src/xviewer-window.c:3807
 #, c-format
 msgid "Couldn't delete file"
-msgstr ""
+msgstr "Methu dileu ffeil"
 
 #. set dialog error message
-#: ../src/xviewer-window.c:3557 ../src/xviewer-window.c:3859
+#: ../src/xviewer-window.c:3601 ../src/xviewer-window.c:3903
 #, c-format
 msgid "Error on deleting image %s"
 msgstr "Gwall wrth ddileu delwedd %s"
 
-#: ../src/xviewer-window.c:3664
+#: ../src/xviewer-window.c:3708
 #, c-format
 msgid ""
 "Are you sure you want to move\n"
@@ -1198,14 +1053,16 @@ msgstr ""
 "Ydych chi'n siŵr eich bod am symud\n"
 "\"%s\" i'r sbwriel?"
 
-#: ../src/xviewer-window.c:3667
+#: ../src/xviewer-window.c:3711
 #, c-format
 msgid ""
 "A trash for \"%s\" couldn't be found. Do you want to remove this image "
 "permanently?"
 msgstr ""
+"Methu canfod sbwriel ar gyfer \"%s\". Ydych chi am gael gwared â'r ddelwedd "
+"hon yn barhaol?"
 
-#: ../src/xviewer-window.c:3672
+#: ../src/xviewer-window.c:3716
 #, c-format
 msgid ""
 "Are you sure you want to move\n"
@@ -1214,367 +1071,414 @@ msgid_plural ""
 "Are you sure you want to move\n"
 "the %d selected images to the trash?"
 msgstr[0] ""
+"Ydych chi'n siŵr eich bod chi eisiau symud\n"
+"y ddelwedd a ddewiswyd i'r sbwriel?"
 msgstr[1] ""
+"Ydych chi'n siŵr eich bod chi eisiau symud\n"
+"y %d ddelwedd a ddewiswyd i'r sbwriel?"
+msgstr[2] ""
+"Ydych chi'n siŵr eich bod chi eisiau symud\n"
+"y %d ddelwedd a ddewiswyd i'r sbwriel?"
+msgstr[3] ""
+"Ydych chi'n siŵr eich bod chi eisiau symud\n"
+"y %d ddelwedd a ddewiswyd i'r sbwriel?"
 
-#: ../src/xviewer-window.c:3677
+#: ../src/xviewer-window.c:3721
 msgid ""
 "Some of the selected images can't be moved to the trash and will be removed "
 "permanently. Are you sure you want to proceed?"
 msgstr ""
+"Nid oes modd symud rhai o'r delweddau a ddewiswyd i'r sbwriel a chânt eu "
+"symud yn barhaol. Ydych chi'n siŵr eich bod am barhau?"
 
-#: ../src/xviewer-window.c:3694 ../src/xviewer-window.c:4182
-#: ../src/xviewer-window.c:4212
+#: ../src/xviewer-window.c:3738 ../src/xviewer-window.c:4310
+#: ../src/xviewer-window.c:4349
 msgid "Move to _Trash"
 msgstr "Symud i'r _Sbwriel"
 
-#: ../src/xviewer-window.c:3741 ../src/xviewer-window.c:3755
+#: ../src/xviewer-window.c:3785 ../src/xviewer-window.c:3799
 #, c-format
 msgid "Couldn't access trash."
 msgstr "Methwyd a chyrchu'r sbwriel."
 
-#: ../src/xviewer-window.c:4106
+#: ../src/xviewer-window.c:4232
 msgid "_File"
-msgstr ""
+msgstr "_Ffeil"
 
-#: ../src/xviewer-window.c:4107
+#: ../src/xviewer-window.c:4233
 msgid "_Edit"
 msgstr "_Golygu"
 
-#: ../src/xviewer-window.c:4109
+#: ../src/xviewer-window.c:4235
 msgid "_Go"
 msgstr "_Mynd"
 
-#: ../src/xviewer-window.c:4110
+#: ../src/xviewer-window.c:4236
 msgid "_Tools"
-msgstr ""
+msgstr "_Offer"
 
-#: ../src/xviewer-window.c:4113
+#: ../src/xviewer-window.c:4238
+msgid "_Favorites"
+msgstr "_Ffefrynnau"
+
+#: ../src/xviewer-window.c:4239
+msgid "_Recents"
+msgstr "_Diweddar"
+
+#: ../src/xviewer-window.c:4241
 msgid "_Open…"
-msgstr ""
+msgstr "_Agor..."
 
-#: ../src/xviewer-window.c:4114
+#: ../src/xviewer-window.c:4242
 msgid "Open a file"
 msgstr "Agor ffeil"
 
-#: ../src/xviewer-window.c:4117
+#: ../src/xviewer-window.c:4245
 msgid "Close window"
 msgstr "Cau ffenestr"
 
-#: ../src/xviewer-window.c:4120
+#: ../src/xviewer-window.c:4248
 msgid "Preferences for Image Viewer"
-msgstr ""
+msgstr "Dewisiadau ar gyfer Darllenydd Delweddau"
 
-#: ../src/xviewer-window.c:4122
+#: ../src/xviewer-window.c:4250
 msgid "_Contents"
 msgstr "_Cynnwys"
 
-#: ../src/xviewer-window.c:4123
+#: ../src/xviewer-window.c:4251
 msgid "Help on this application"
-msgstr ""
+msgstr "Cymorth ar gyfer y rhaglen"
 
-#: ../src/xviewer-window.c:4126
+#: ../src/xviewer-window.c:4254
 msgid "About this application"
 msgstr "Ynghylch y rhaglen hon"
 
-#: ../src/xviewer-window.c:4132
+#: ../src/xviewer-window.c:4260
 msgid "Changes the visibility of the toolbar in the current window"
 msgstr "Newid gwelededd y bar offer yn y ffenestr gyfredol"
 
-#: ../src/xviewer-window.c:4135
+#: ../src/xviewer-window.c:4263
 msgid "Changes the visibility of the statusbar in the current window"
 msgstr "Newid gwelededd y bar statws yn y ffenestr gyfredol"
 
-#: ../src/xviewer-window.c:4138
+#: ../src/xviewer-window.c:4266
 msgid ""
 "Changes the visibility of the image gallery pane in the current window"
-msgstr ""
+msgstr "Yn newid gwelededd cwarel yr oriel ddelweddau yn y ffenestr gyfredol"
 
-#: ../src/xviewer-window.c:4141
+#: ../src/xviewer-window.c:4269
 msgid "Changes the visibility of the side pane in the current window"
-msgstr ""
+msgstr "Yn newid gwelededd y cwarel ochr yn y ffenestr gyfredol"
 
-#: ../src/xviewer-window.c:4147
+#: ../src/xviewer-window.c:4275
 msgid "Save changes in currently selected images"
-msgstr ""
+msgstr "Cadwch newidiadau mewn delweddau a ddewiswyd ar hyn o bryd"
 
-#: ../src/xviewer-window.c:4149
+#: ../src/xviewer-window.c:4277
 msgid "Open _with"
-msgstr ""
+msgstr "Agor _gyda"
 
-#: ../src/xviewer-window.c:4150
+#: ../src/xviewer-window.c:4278
 msgid "Open the selected image with a different application"
-msgstr ""
+msgstr "Agorwch y ddelwedd a ddewiswyd gyda rhaglen gwahanol"
 
-#: ../src/xviewer-window.c:4153
+#: ../src/xviewer-window.c:4281
 msgid "Save the selected images with a different name"
-msgstr ""
+msgstr "Cadwch y delweddau a ddewiswyd gydag enw gwahanol"
 
-#: ../src/xviewer-window.c:4155
+#: ../src/xviewer-window.c:4283
 msgid "Show Containing _Folder"
-msgstr ""
+msgstr "Dangos y _Ffolder Cynnwys"
 
-#: ../src/xviewer-window.c:4158
+#: ../src/xviewer-window.c:4286
 msgid "_Print…"
-msgstr ""
+msgstr "_Argraffu..."
 
-#: ../src/xviewer-window.c:4159
+#: ../src/xviewer-window.c:4287
 msgid "Print the selected image"
-msgstr ""
+msgstr "Argraffwch y ddelwedd a ddewiswyd"
 
-#: ../src/xviewer-window.c:4161
+#: ../src/xviewer-window.c:4289
 msgid "Prope_rties"
-msgstr ""
+msgstr "P_riodweddau"
 
-#: ../src/xviewer-window.c:4162
+#: ../src/xviewer-window.c:4290
 msgid "Show the properties and metadata of the selected image"
-msgstr ""
+msgstr "Dangoswch y priodweddau a metadata'r ddelwedd a ddewiswyd"
 
-#: ../src/xviewer-window.c:4164
+#: ../src/xviewer-window.c:4292
 msgid "_Undo"
 msgstr "_Dadwneud"
 
-#: ../src/xviewer-window.c:4165
+#: ../src/xviewer-window.c:4293
 msgid "Undo the last change in the image"
-msgstr ""
+msgstr "Dadwneud y newid olaf yn y ddelwedd"
 
-#: ../src/xviewer-window.c:4167
+#: ../src/xviewer-window.c:4295
 msgid "Flip _Horizontal"
 msgstr "Troi drosodd yn _Llorweddol"
 
-#: ../src/xviewer-window.c:4168
+#: ../src/xviewer-window.c:4296
 msgid "Mirror the image horizontally"
-msgstr ""
+msgstr "Drychwch y ddelwedd yn llorweddol"
 
-#: ../src/xviewer-window.c:4170
+#: ../src/xviewer-window.c:4298
 msgid "Flip _Vertical"
 msgstr "Troi drosodd yn _Fertigol"
 
-#: ../src/xviewer-window.c:4171
+#: ../src/xviewer-window.c:4299
 msgid "Mirror the image vertically"
-msgstr ""
+msgstr "Drychwch y ddelwedd yn fertigol"
 
-#: ../src/xviewer-window.c:4173
+#: ../src/xviewer-window.c:4301
 msgid "_Rotate Clockwise"
 msgstr "Cylchdroi _Gyda'r Cloc"
 
-#: ../src/xviewer-window.c:4174
+#: ../src/xviewer-window.c:4302
 msgid "Rotate the image 90 degrees to the right"
-msgstr ""
+msgstr "Cylchdroi'r ddelwedd 90 gradd i'r dde"
 
-#: ../src/xviewer-window.c:4176
+#: ../src/xviewer-window.c:4304
 msgid "Rotate Counterc_lockwise"
-msgstr ""
+msgstr "Cylchdroi _Gwrthglocwedd"
 
-#: ../src/xviewer-window.c:4177
+#: ../src/xviewer-window.c:4305
 msgid "Rotate the image 90 degrees to the left"
-msgstr ""
+msgstr "Cylchdroi'r ddelwedd 90 gradd i'r chwith"
 
-#: ../src/xviewer-window.c:4179
+#: ../src/xviewer-window.c:4307
 msgid "Set as Wa_llpaper"
-msgstr ""
+msgstr "Gosod fel _Papurwal"
 
-#: ../src/xviewer-window.c:4180
+#: ../src/xviewer-window.c:4308
 msgid "Set the selected image as the wallpaper"
-msgstr ""
+msgstr "Gosod y ddelwedd a ddewiswyd fel y papur wal"
 
-#: ../src/xviewer-window.c:4183
+#: ../src/xviewer-window.c:4311
 msgid "Move the selected image to the trash folder"
-msgstr ""
+msgstr "Symud y ddelwedd a ddewiswyd i'r ffolder sbwriel"
 
-#: ../src/xviewer-window.c:4185
+#: ../src/xviewer-window.c:4313
 msgid "_Delete Image"
-msgstr ""
+msgstr "_Dileu Delwedd"
 
-#: ../src/xviewer-window.c:4186
+#: ../src/xviewer-window.c:4314
 msgid "Delete the selected image"
-msgstr ""
+msgstr "Dileu'r ddelwedd a ddewiswyd"
 
-#: ../src/xviewer-window.c:4188
+#: ../src/xviewer-window.c:4316
 msgid "_Copy"
-msgstr ""
+msgstr "_Copïo"
 
-#: ../src/xviewer-window.c:4189
+#: ../src/xviewer-window.c:4317
 msgid "Copy the selected image to the clipboard"
-msgstr ""
+msgstr "Copïo'r ddelwedd a ddewiswyd i'r clipfwrdd"
 
-#: ../src/xviewer-window.c:4191 ../src/xviewer-window.c:4203
-#: ../src/xviewer-window.c:4206
+#: ../src/xviewer-window.c:4319 ../src/xviewer-window.c:4337
+#: ../src/xviewer-window.c:4340
 msgid "_Zoom In"
 msgstr "_Chwyddo"
 
-#: ../src/xviewer-window.c:4192 ../src/xviewer-window.c:4204
+#: ../src/xviewer-window.c:4320 ../src/xviewer-window.c:4338
 msgid "Enlarge the image"
-msgstr ""
+msgstr "Ehangu'r ddelwedd"
 
-#: ../src/xviewer-window.c:4194 ../src/xviewer-window.c:4209
+#: ../src/xviewer-window.c:4322 ../src/xviewer-window.c:4343
 msgid "Zoom _Out"
 msgstr "Cre_bachu"
 
-#: ../src/xviewer-window.c:4195 ../src/xviewer-window.c:4207
-#: ../src/xviewer-window.c:4210
+#: ../src/xviewer-window.c:4323 ../src/xviewer-window.c:4341
+#: ../src/xviewer-window.c:4344
 msgid "Shrink the image"
-msgstr ""
+msgstr "Lleihau'r ddelwedd"
 
-#: ../src/xviewer-window.c:4197
+#: ../src/xviewer-window.c:4325 ../src/xviewer-window.c:4346
 msgid "_Normal Size"
 msgstr "Maint _Arferol"
 
-#: ../src/xviewer-window.c:4198
+#: ../src/xviewer-window.c:4326 ../src/xviewer-window.c:4347
 msgid "Show the image at its normal size"
-msgstr ""
+msgstr "Dangos y ddelwedd ar ei maint arferol"
 
-#: ../src/xviewer-window.c:4201
+#: ../src/xviewer-window.c:4328
+msgid "Fit to _Height"
+msgstr "Ffitio i'r Uchder"
+
+#: ../src/xviewer-window.c:4329
+msgid "Fit to height"
+msgstr "Ffitio i'r uchder"
+
+#: ../src/xviewer-window.c:4331
+msgid "Fit to _Width"
+msgstr "Ffitiio i'r Lled"
+
+#: ../src/xviewer-window.c:4332
+msgid "Fit to width"
+msgstr "Ffitio i'r lled"
+
+#: ../src/xviewer-window.c:4335
 msgid "Reload the image"
-msgstr ""
+msgstr "Ail-lwytho'r ddelwedd"
 
-#: ../src/xviewer-window.c:4218
+#: ../src/xviewer-window.c:4355
 msgid "_Fullscreen"
-msgstr ""
+msgstr "_Sgrin Lawn"
 
-#: ../src/xviewer-window.c:4219
+#: ../src/xviewer-window.c:4356
 msgid "Show the current image in fullscreen mode"
-msgstr ""
+msgstr "Dangos y ddelwedd gyfredol yn y modd sgrin lawn"
 
-#: ../src/xviewer-window.c:4221
+#: ../src/xviewer-window.c:4358
 msgid "Pause Slideshow"
-msgstr ""
+msgstr "Oedi'r Sioe Sleidiau"
 
-#: ../src/xviewer-window.c:4222
+#: ../src/xviewer-window.c:4359
 msgid "Pause or resume the slideshow"
-msgstr ""
+msgstr "Oedi neu ailddechrau'r sioe sleidiau"
 
-#: ../src/xviewer-window.c:4224
+#: ../src/xviewer-window.c:4361
 msgid "_Best Fit"
-msgstr ""
+msgstr "_Ffit Orau"
 
-#: ../src/xviewer-window.c:4225
+#: ../src/xviewer-window.c:4362
 msgid "Fit the image to the window"
-msgstr ""
+msgstr "Ffitio'r ddelwedd i'r ffenestr"
 
-#: ../src/xviewer-window.c:4230 ../src/xviewer-window.c:4245
+#: ../src/xviewer-window.c:4367 ../src/xviewer-window.c:4382
 msgid "_Previous Image"
 msgstr "Delwedd _Flaenorol"
 
-#: ../src/xviewer-window.c:4231
+#: ../src/xviewer-window.c:4368
 msgid "Go to the previous image of the gallery"
-msgstr ""
+msgstr "Mynd i ddelwedd flaenorol yr oriel"
 
-#: ../src/xviewer-window.c:4233
+#: ../src/xviewer-window.c:4370
 msgid "_Next Image"
 msgstr "Delwedd _Nesaf"
 
-#: ../src/xviewer-window.c:4234
+#: ../src/xviewer-window.c:4371
 msgid "Go to the next image of the gallery"
-msgstr ""
+msgstr "Mynd i ddelwedd nesaf yr oriel"
 
-#: ../src/xviewer-window.c:4236 ../src/xviewer-window.c:4248
+#: ../src/xviewer-window.c:4373 ../src/xviewer-window.c:4385
 msgid "_First Image"
 msgstr "Delwedd _Cyntaf"
 
-#: ../src/xviewer-window.c:4237
+#: ../src/xviewer-window.c:4374
 msgid "Go to the first image of the gallery"
-msgstr ""
+msgstr "Mynd i ddelwedd gyntaf yr oriel"
 
-#: ../src/xviewer-window.c:4239 ../src/xviewer-window.c:4251
+#: ../src/xviewer-window.c:4376 ../src/xviewer-window.c:4388
 msgid "_Last Image"
 msgstr "Delwedd _Olaf"
 
-#: ../src/xviewer-window.c:4240
+#: ../src/xviewer-window.c:4377
 msgid "Go to the last image of the gallery"
-msgstr ""
+msgstr "Mynd i ddelwedd olaf yr oriel"
 
-#: ../src/xviewer-window.c:4242
+#: ../src/xviewer-window.c:4379
 msgid "_Random Image"
-msgstr ""
+msgstr "Delwedd ar _Hap"
 
-#: ../src/xviewer-window.c:4243
+#: ../src/xviewer-window.c:4380
 msgid "Go to a random image of the gallery"
-msgstr ""
+msgstr "Mynd i ddelwedd ar hap o'r oriel"
 
-#: ../src/xviewer-window.c:4401
+#: ../src/xviewer-window.c:4538
 msgid "S_lideshow"
-msgstr ""
+msgstr "Sioe Sleidiau"
 
-#: ../src/xviewer-window.c:4402
+#: ../src/xviewer-window.c:4539
 msgid "Start a slideshow view of the images"
-msgstr ""
+msgstr "Dechreuwch olwg sioe sleidiau o'r delweddau"
 
-#: ../src/xviewer-window.c:4474
+#: ../src/xviewer-window.c:4611
 msgid "Previous"
 msgstr "Blaenorol"
 
-#: ../src/xviewer-window.c:4479
+#: ../src/xviewer-window.c:4616
 msgid "Next"
 msgstr "Nesaf"
 
-#: ../src/xviewer-window.c:4486
+#: ../src/xviewer-window.c:4623
 msgid "Right"
 msgstr "De"
 
-#: ../src/xviewer-window.c:4489
+#: ../src/xviewer-window.c:4626
 msgid "Left"
 msgstr "Chwith"
 
-#: ../src/xviewer-window.c:4492
+#: ../src/xviewer-window.c:4629
 msgid "Show Folder"
-msgstr ""
+msgstr "Dangos Ffolder"
 
-#: ../src/xviewer-window.c:4495
+#: ../src/xviewer-window.c:4632
 msgid "Out"
 msgstr "Allan"
 
-#: ../src/xviewer-window.c:4498
+#: ../src/xviewer-window.c:4635
 msgid "In"
 msgstr "I Mewn"
 
-#: ../src/xviewer-window.c:4501
+#: ../src/xviewer-window.c:4638
 msgid "Normal"
 msgstr "Arferol"
 
-#: ../src/xviewer-window.c:4504
+#: ../src/xviewer-window.c:4641
+msgid "Height"
+msgstr "Uchder"
+
+#: ../src/xviewer-window.c:4644
+msgid "Width"
+msgstr "Lled"
+
+#: ../src/xviewer-window.c:4647
 msgid "Fit"
 msgstr "Ffitio"
 
-#: ../src/xviewer-window.c:4507
+#: ../src/xviewer-window.c:4650
 msgid "Gallery"
-msgstr ""
+msgstr "Oriel"
 
-#: ../src/xviewer-window.c:4524
+#: ../src/xviewer-window.c:4667
 msgctxt "action (to trash)"
 msgid "Trash"
-msgstr ""
+msgstr "Sbwriel"
 
 #: ../src/main.c:63
 msgid "Open in fullscreen mode"
-msgstr ""
+msgstr "Ar agor yn y modd sgrin lawn"
 
 #: ../src/main.c:64
 msgid "Disable image gallery"
-msgstr ""
+msgstr "Analluogi oriel ddelweddau"
 
 #: ../src/main.c:65
 msgid "Open in slideshow mode"
-msgstr ""
+msgstr "Agor yn y modd sioe sleidiau"
 
 #: ../src/main.c:66
 msgid "Start a new instance instead of reusing an existing one"
-msgstr ""
+msgstr "Cychwyn enghraifft newydd yn lle ailddefnyddio un sy'n bodoli eisoes"
 
 #: ../src/main.c:67
 msgid ""
 "Open in a single window, if multiple windows are open the first one is used"
 msgstr ""
+"Agor mewn un ffenestr, os yw ffenestri lluosog ar agor bydd yr un gyntaf yn "
+"cael ei defnyddio"
 
 #: ../src/main.c:69
 msgid "Show the application's version"
-msgstr ""
+msgstr "Dangos fersiwn y rhaglen"
 
 #: ../src/main.c:99
 msgid "[FILE…]"
-msgstr ""
+msgstr "[FFEIL...]"
 
 #. I18N: The '%s' is replaced with xviewer's command name.
 #: ../src/main.c:112
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options."
 msgstr ""
+"Rhedeg '%s --help' i weld rhestr lawn o ddewisiadau llinell gorchymyn."

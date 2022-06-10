@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <requires lib="libpeas-gtk" version="1.0"/>
@@ -15,6 +15,9 @@
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Preferences</property>
     <property name="type_hint">dialog</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can_focus">False</property>
@@ -84,8 +87,8 @@
                       <object class="GtkLabel" id="label6">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">Image Enhancements</property>
+                        <property name="xalign">0</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -180,8 +183,8 @@
                       <object class="GtkLabel" id="label1">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">Background</property>
+                        <property name="xalign">0</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -257,8 +260,8 @@
                       <object class="GtkLabel" id="label8">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">Transparent Parts</property>
+                        <property name="xalign">0</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -403,8 +406,8 @@
                       <object class="GtkLabel" id="label13">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">Image Zoom</property>
+                        <property name="xalign">0</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -442,8 +445,8 @@
                       <object class="GtkLabel" id="label15">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">Sequence</property>
+                        <property name="xalign">0</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
                         </attributes>
@@ -474,9 +477,9 @@
                                   <object class="GtkLabel" id="label36">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes" comments="I18N: This sentence will be displayed above a horizonzal scale to select a number of seconds in xviewer's preferences dialog.">_Time between images:</property>
                                     <property name="use_underline">True</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -539,6 +542,44 @@
                         <property name="position">3</property>
                       </packing>
                     </child>
+                    <child>
+                      <object class="GtkLabel" id="label_pause_resume">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Control</property>
+                        <property name="xalign">0</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">4</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkAlignment">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="left_padding">16</property>
+                        <child>
+                          <object class="GtkCheckButton" id="pause_resume_check">
+                            <property name="label" translatable="yes">Pause and resume with the spacebar</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="xalign">0</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">5</property>
+                      </packing>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -563,6 +604,345 @@
               </packing>
             </child>
             <child>
+              <object class="GtkBox" id="Box1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="border_width">12</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="labelM2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Scroll Wheel</property>
+                    <property name="xalign">0</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkGrid" id="Grid1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">16</property>
+                    <property name="row_spacing">6</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkLabel" id="labelM4">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="ScrollTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="ScrollShiftTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="ScrollCtrlTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="ScrollShiftCtrlTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="labelM13">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Shift + Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="labelM15">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Control + Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="labelM16">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Shift + Control + Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="labelM3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Tilt Wheel</property>
+                    <property name="xalign">0</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkGrid" id="Grid2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">16</property>
+                    <property name="row_spacing">6</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkComboBoxText" id="TiltTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="TiltShiftTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="TiltCtrlTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="TiltShiftCtrlTextComboBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">0</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">Zoom</item>
+                          <item id="1" translatable="yes">Vertical Scrolling</item>
+                          <item id="2" translatable="yes">Horizontal Scrolling</item>
+                          <item id="3" translatable="yes">Previous/Next Image</item>
+                          <item id="4" translatable="yes">Rotate 90 degrees</item>
+                          <item id="5" translatable="yes">No Action</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="labelM17">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="labelM18">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Shift + Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="labelM19">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Control + Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="labelM">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Shift + Control + Wheel</property>
+                        <property name="xalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="labelM1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Mouse</property>
+              </object>
+              <packing>
+                <property name="position">2</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkBox" id="plugin_manager_container">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -582,7 +962,7 @@
                 </child>
               </object>
               <packing>
-                <property name="position">2</property>
+                <property name="position">3</property>
               </packing>
             </child>
             <child type="tab">
@@ -592,7 +972,7 @@
                 <property name="label" translatable="yes">Plugins</property>
               </object>
               <packing>
-                <property name="position">2</property>
+                <property name="position">3</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>

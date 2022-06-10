@@ -42,6 +42,16 @@
 #define XVIEWER_CONF_VIEW_INTERPOLATE		"interpolate"
 #define XVIEWER_CONF_VIEW_EXTRAPOLATE		"extrapolate"
 #define XVIEWER_CONF_VIEW_SCROLL_WHEEL_ZOOM		"scroll-wheel-zoom"
+
+#define XVIEWER_CONF_VIEW_SCROLL_ACTION             "scroll-action"
+#define XVIEWER_CONF_VIEW_SCROLL_SHIFT_ACTION       "shift-scroll-action"
+#define XVIEWER_CONF_VIEW_SCROLL_CTRL_ACTION        "control-scroll-action"
+#define XVIEWER_CONF_VIEW_SCROLL_SHIFT_CTRL_ACTION  "shift-control-scroll-action"
+#define XVIEWER_CONF_VIEW_TILT_ACTION               "tilt-action"
+#define XVIEWER_CONF_VIEW_TILT_SHIFT_ACTION         "shift-tilt-action"
+#define XVIEWER_CONF_VIEW_TILT_CTRL_ACTION          "control-tilt-action"
+#define XVIEWER_CONF_VIEW_TILT_SHIFT_CTRL_ACTION    "shift-control-tilt-action"
+
 #define XVIEWER_CONF_VIEW_ZOOM_MULTIPLIER		"zoom-multiplier"
 #define XVIEWER_CONF_VIEW_AUTOROTATE                "autorotate"
 #define XVIEWER_CONF_VIEW_TRANSPARENCY		"transparency"
@@ -50,9 +60,10 @@
 
 #define XVIEWER_CONF_WINDOW_MAXIMIZED			"maximized"
 
-#define XVIEWER_CONF_FULLSCREEN_LOOP		"loop"
-#define XVIEWER_CONF_FULLSCREEN_UPSCALE		"upscale"
-#define XVIEWER_CONF_FULLSCREEN_SECONDS		"seconds"
+#define XVIEWER_CONF_FULLSCREEN_LOOP		    "loop"
+#define XVIEWER_CONF_FULLSCREEN_UPSCALE		    "upscale"
+#define XVIEWER_CONF_FULLSCREEN_SECONDS		    "seconds"
+#define XVIEWER_CONF_FULLSCREEN_SPACEBAR_PAUSE  "space-pause"
 
 #define XVIEWER_CONF_UI_TOOLBAR			"toolbar"
 #define XVIEWER_CONF_UI_STATUSBAR			"statusbar"

@@ -652,6 +652,37 @@ xviewer_image_get_file_info (XviewerImage *img,
 			 gchar **mime_type,
 			 GError **error)
 {
+    const gint BUFFER_SIZE = 100;            /* give the recognition based on content a reasonable chance */
+
+    gboolean file_type_unknown = TRUE;
+
+	static const struct magic {                                 /* 'magic number' code based on code from pix */
+		const unsigned int offset;
+		const unsigned int length;
+		const char * const id_bytes;
+		const char * const mime_type_str;
+	}
+	magic_type_ids [] = {
+		{ 0,  8, "\x89PNG\x0d\x0a\x1a\x0a", "image/png" },
+		{ 0,  4, "MM\x00\x2a",              "image/tiff" },
+		{ 0,  4, "II\x2a\x00",              "image/tiff" },
+		{ 0,  4, "GIF8",                    "image/gif" },
+		{ 0,  3, "\xff\xd8\xff",            "image/jpeg" },
+		{ 0,  2, "BM",                      "image/bmp" },
+		{ 0,  4, "\x00\x00\x01\x00",        "image/vnd.microsoft.icon" },
+		{ 8,  7, "WEBPVP8",                 "image/webp" }      /* whilst webp is not currently (9.12.2020)
+                                                                   supported it has been included here in
+                                                                   case support is added */
+
+                                                                /* note that there are no magic numbers for
+                                                                   AVIF and svg type files - so no tests here */
+	};
+
+
+    /* Note that as of 9.12.2020 g_file_query_info() and g_content_type_guess() both return application/octet-stream
+       for AVIF files (with AVIF extensions. The correct MIME type is image/avif - assume that this will be corrected
+       before xviewer supports AVIF files. */
+
 	GFileInfo *file_info;
 
 	file_info = g_file_query_info (img->priv->file,
@@ -674,8 +705,71 @@ xviewer_image_get_file_info (XviewerImage *img,
 		if (bytes)
 			*bytes = g_file_info_get_size (file_info);
 
+        /* g_file_query_info() (as of 9.12.2020) returns a MIME type based on the file
+            extension - even if the extension is not the correct one for the file content.
+            If there is no extension it examines the content of the file to determine
+            the type. Use the result returned by g_file_query_info() as the default to
+            be used if we can't determine the type based on content, otherwise use the type based
+            on content rather than the file extension */
 		if (mime_type)
-			*mime_type = g_strdup (g_file_info_get_content_type (file_info));
+        {
+            GFileInputStream *input_stream;
+            guchar ip_buffer [BUFFER_SIZE];
+            gint bytes_read;
+            char *mime_type_by_extn;
+
+            input_stream = g_file_read (img->priv->file,
+                                       NULL, error);
+            if (input_stream)
+            {
+                bytes_read = g_input_stream_read (G_INPUT_STREAM (input_stream),
+                                                 ip_buffer,
+                                                 BUFFER_SIZE,
+                                                 NULL, error);
+                g_object_unref(G_OBJECT(input_stream));
+
+                if (bytes_read != 0)
+                {                               /* try to determine file type based on content */
+                    gint i;
+
+                    for (i = 0; i < G_N_ELEMENTS (magic_type_ids); i++) {
+                        if ((magic_type_ids[i].offset + magic_type_ids[i].length) <= bytes_read)
+                            if (! memcmp (ip_buffer + magic_type_ids[i].offset, magic_type_ids[i].id_bytes, magic_type_ids[i].length))
+                                {
+                                    *mime_type =  g_strdup (magic_type_ids[i].mime_type_str);
+                                    file_type_unknown = FALSE;
+                                    break;
+                                }
+                    }
+                }
+
+                if (file_type_unknown)
+                {
+                    char *content_type;
+	                gboolean    result_uncertain = FALSE;
+                    content_type = g_content_type_guess (NULL, ip_buffer, bytes_read, &result_uncertain);
+                    if (content_type != NULL)
+                    {
+                        *mime_type =  g_strdup (content_type);
+                        file_type_unknown = FALSE;
+                        g_free (content_type);
+                    }
+                }
+            }
+
+            mime_type_by_extn = g_strdup (g_file_info_get_content_type (file_info));
+
+            if (file_type_unknown)
+               *mime_type = g_strdup (mime_type_by_extn);
+            else
+            {
+                if ((strstr (*mime_type,"application/") == *mime_type) &&
+                    (strstr (mime_type_by_extn,"image/") == mime_type_by_extn))
+                    *mime_type = g_strdup (mime_type_by_extn);
+            }
+
+            g_free (mime_type_by_extn);
+        }
 		g_object_unref (file_info);
 	}
 }
@@ -816,8 +910,9 @@ xviewer_image_set_orientation (XviewerImage *img)
 	}
 
 	if (priv->orientation > 4 &&
-	    priv->orientation < 9) {
-		gint tmp;
+        priv->orientation < 9 &&
+        priv->autorotate) {
+        gint tmp;
 
 		tmp = priv->width;
 		priv->width = priv->height;
@@ -1091,6 +1186,34 @@ xviewer_image_real_load (XviewerImage *img,
 
 			break;
 		}
+
+        /* GIMP (version 2.10.22 and probably all versions since the option of saving colour space information was added)
+           saves BMP files with a BITMAPV5HEADER when the colour space information is to be included. It sets the bV5Compression
+           member to BI_BITFIELDS (3) for all six non-indexed variants of BMPs that it saves. This indicates that there is no compression of
+           the data and that the header members bV5RedMask, bV5GreenMask and bV5BlueMask hold the bit masks for the three colours.
+           The problem is that the Microsoft specification for BITMAPV5HEADER says that BI_BITFIELDS is only valid for 16 and 32-bit
+           files (quite why is questionable) and GIMP sets the mask members correctly but technically the setting of the compression
+           field is illegal and causes  gdk_pixbuf_loader_write() to return an error. (The three variants of 16-bit files and the
+           two variants of 32-bit files have no problems)
+
+           The same problem also applies to 1, 4 and 8 bpp index files saved with colour space information.
+
+           The following statements check for the specific cases of 1, 4, 8 and 24-bit BMP files with colour space information included and
+           with the compression type set incorrectly. For such files the bV5Compression member value is changed to BI_RGB (0) - a simple
+           uncompressed format. */
+
+        if ((bytes_read >= 0x1F) && (bytes_read_total == 0)){   /* only check the start of the file */
+            if ((buffer[0] == 'B') && (buffer[1] == 'M')   /* if the file has the 'magic numbers' for a BMP... */
+                && (buffer[0x0E] == 0x7C)                  /* ...and it has the 124. byte BITMAPv5HEADER (colour space info included)... */
+                && ((buffer[0x1C] == 1)                    /* ...and it has 1, 4, 8 or 24 bits per pixel... */
+                || (buffer[0x1C] == 4)
+                || (buffer[0x1C] == 8)
+                || (buffer[0x1C] == 24))
+                && (buffer[0x1E] == 3))                    /* ...and bV5Compression is set to BI_BITFIELDS */
+            {
+                buffer[0x1E] = 0;                          /* set bV5Compression member to BI_RGB */
+            }
+        }
 
 		if ((read_image_data || read_only_dimension)) {
 #ifdef HAVE_RSVG

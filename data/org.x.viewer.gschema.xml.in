@@ -37,6 +37,62 @@
       <summary>Scroll wheel zoom</summary>
       <description>Whether the scroll wheel should be used for zooming.</description>
     </key>
+    <key name="scroll-action" type="i">
+      <default>0</default>
+      <summary>Mouse scroll wheel action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
+    <key name="shift-scroll-action" type="i">
+      <default>2</default>
+      <summary>Mouse scroll wheel + shift action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
+    <key name="control-scroll-action" type="i">
+      <default>1</default>
+      <summary>Mouse scroll wheel + ctrl action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
+    <key name="shift-control-scroll-action" type="i">
+      <default>2</default>
+      <summary>Mouse scroll wheel + shift action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
+    <key name="tilt-action" type="i">
+      <default>0</default>
+      <summary>Mouse scroll wheel action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
+    <key name="shift-tilt-action" type="i">
+      <default>1</default>
+      <summary>Mouse scroll wheel + shift action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
+    <key name="control-tilt-action" type="i">
+      <default>2</default>
+      <summary>Mouse scroll wheel + ctrl action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
+    <key name="shift-control-tilt-action" type="i">
+      <default>1</default>
+      <summary>Mouse scroll wheel + shift action</summary>
+      <description>Action for mouse scroll wheel. Values are 0 = zoom,
+          1 = Vertical pan, 2 = horizontal pan, 3 = next/prev image,
+          4 = rotate 90 deg CW or CCW, 5 = no action</description>
+    </key>
     <key name="zoom-multiplier" type="d">
       <default>0.05</default>
       <summary>Zoom multiplier</summary>
@@ -68,6 +124,11 @@
       <default>5</default>
       <summary>Delay in seconds until showing the next image</summary>
       <description>A value greater than 0 determines the seconds an image stays on screen until the next one is shown automatically. Zero  disables the automatic browsing.</description>
+    </key>
+    <key name="space-pause" type="b">
+      <default>false</default>
+      <summary>Spacebar pauses and resumes slideshows</summary>
+      <description>Whether the spacebar should pause and resume slideshows.</description>
     </key>
   </schema>
   <schema gettext-domain="@GETTEXT_PACKAGE@" id="org.x.viewer.ui" path="/org/x/viewer/ui/">

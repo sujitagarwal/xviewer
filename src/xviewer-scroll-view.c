@@ -3,6 +3,7 @@
 #endif
 
 #include <stdlib.h>
+#include <fcntl.h>
 #include <math.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk/gdkkeysyms.h>
@@ -14,6 +15,7 @@
 #include "xviewer-enum-types.h"
 #include "xviewer-scroll-view.h"
 #include "xviewer-debug.h"
+
 #if 0
 #include "uta.h"
 #endif
@@ -121,6 +123,8 @@ struct _XviewerScrollViewPrivate {
 	guint frame_changed_id;
 	GdkPixbuf *pixbuf;
 	cairo_surface_t *surface;
+
+	GSettings           *view_settings;
 
 	/* zoom mode, either ZOOM_MODE_FIT or ZOOM_MODE_FREE */
 	XviewerZoomMode zoom_mode;
@@ -239,9 +243,7 @@ create_surface_from_pixbuf (XviewerScrollView *view, GdkPixbuf *pixbuf)
         size_invalid = TRUE;
     }
 
-	surface = gdk_window_create_similar_surface (gtk_widget_get_window (view->priv->display),
-						     CAIRO_CONTENT_COLOR | CAIRO_CONTENT_ALPHA,
-						     w, h);
+    surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, w, h);
 
 	if (size_invalid) {
 		return surface;
@@ -318,7 +320,6 @@ compute_center_zoom_offsets (XviewerScrollView *view,
 	int old_scaled_width, old_scaled_height;
 	int new_scaled_width, new_scaled_height;
 	double view_cx, view_cy;
-	GtkRequisition req;
 
 	priv = view->priv;
 
@@ -1379,10 +1380,14 @@ set_minimum_zoom_factor (XviewerScrollView *view)
  * is %TRUE, then (@anchorx, @anchory) specify the point relative to the image
  * view widget's allocation that will stay fixed when zooming.  If @have_anchor
  * is %FALSE, then the center point of the image view will be used.
+ * If @force_display is %TRUE then the function will not return if @zoom == priv->zoom
+ * (this is necessary for different scroll settings of the fit to width and fit to
+ * height to be used consecutively)
  **/
 static void
 set_zoom (XviewerScrollView *view, double zoom,
-	  gboolean have_anchor, int anchorx, int anchory)
+	  gboolean have_anchor, int anchorx, int anchory,
+      gboolean force_display)
 {
 	XviewerScrollViewPrivate *priv;
 	GtkAllocation allocation;
@@ -1401,7 +1406,7 @@ set_zoom (XviewerScrollView *view, double zoom,
 	else if (zoom < MIN_ZOOM_FACTOR)
 		zoom = MIN_ZOOM_FACTOR;
 
-	if (DOUBLE_EQUAL (priv->zoom, zoom))
+	if ((DOUBLE_EQUAL (priv->zoom, zoom)) && (!force_display))
 		return;
 	if (DOUBLE_EQUAL (priv->zoom, priv->min_zoom) && zoom < priv->zoom)
 		return;
@@ -1483,7 +1488,6 @@ set_zoom (XviewerScrollView *view, double zoom,
 
 	/* repaint the whole image */
 	gtk_widget_queue_draw (GTK_WIDGET (priv->display));
-
 	g_signal_emit (view, view_signals [SIGNAL_ZOOM_CHANGED], 0, priv->zoom);
 }
 
@@ -1545,7 +1549,6 @@ display_key_press_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
 	int zoomed_img_height;
 	int zoomed_img_width;
 	GtkRequisition req;
-
 	view = XVIEWER_SCROLL_VIEW (data);
 	priv = view->priv;
 
@@ -1634,6 +1637,104 @@ display_key_press_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
 		}
 		break;
 
+                            /* zoom to fit image height */
+    case GDK_KEY_J:         /* keycode needed so that the menu and the toolbar icon can call this code */
+    case GDK_KEY_H:
+    case GDK_KEY_h:
+        if ((event->state & (modifiers ^ (GDK_SHIFT_MASK | GDK_MOD1_MASK))) == 0)
+        {
+            if (gtk_widget_get_visible (GTK_WIDGET (priv->hbar)))
+            {
+                gtk_widget_get_preferred_size (priv->hbar, &req, NULL);
+                allocation.height += req.height;
+            }
+
+            if (gtk_widget_get_visible (GTK_WIDGET (priv->vbar)))
+            {
+                gtk_widget_get_preferred_size (priv->vbar, &req, NULL);
+                allocation.width += req.width;
+            }
+
+                                            /* calculate the zoom factor for fitting the height assuming
+                                               that the horizontal scrollbar is not required */
+            zoom = (double)allocation.height / (double)gdk_pixbuf_get_height (priv->pixbuf);
+
+            if ((zoom * gdk_pixbuf_get_width (priv->pixbuf)) > allocation.width)
+            {                       /* need to display the horizontal scrollbar so reduce height
+                                       available to show height without vertical scrollbar */
+                if (!gtk_widget_get_visible (GTK_WIDGET (priv->hbar)))
+                    g_object_set (G_OBJECT (priv->hbar), "visible", TRUE, NULL);    /* show the horizontalal scrollbar so
+                                                                                       that its height can be determined */
+
+                gtk_widget_get_preferred_size (priv->hbar, &req, NULL);
+
+                zoom = (double)(allocation.height - req.height) / (double)gdk_pixbuf_get_height (priv->pixbuf);
+
+                                            /* avoid having blank bars on all 4 sides as would be the case if,
+                                               with the reduced zoom, the horizontal scrollbar is no longer needed.
+                                               Get rid of the side bars and reduce the width of the top and bottom bars */
+                if ((zoom * gdk_pixbuf_get_width (priv->pixbuf)) < allocation.width)
+                    zoom = (double)allocation.width / (double)gdk_pixbuf_get_width (priv->pixbuf);
+            }
+
+            if (zoom > MAX_ZOOM_FACTOR)
+                zoom = MAX_ZOOM_FACTOR;
+            else if (zoom < MIN_ZOOM_FACTOR)
+                zoom = MIN_ZOOM_FACTOR;
+
+            do_zoom = TRUE;
+        }
+        break;
+
+                            /* zoom to fit image width */
+    case GDK_KEY_K:         /* keycode needed so that the menu and the toolbar icon can call this code */
+    case GDK_KEY_W:
+    case GDK_KEY_w:
+        if ((event->state & (modifiers ^ (GDK_SHIFT_MASK | GDK_MOD1_MASK))) == 0)
+        { 
+            if (gtk_widget_get_visible (GTK_WIDGET (priv->hbar)))
+            {
+                gtk_widget_get_preferred_size (priv->hbar, &req, NULL);
+                allocation.height += req.height;
+            }
+
+            if (gtk_widget_get_visible (GTK_WIDGET (priv->vbar)))
+            {
+                gtk_widget_get_preferred_size (priv->vbar, &req, NULL);
+                allocation.width += req.width;
+            }
+
+                                            /* calculate the zoom factor for fitting the width assuming
+                                               that the vertical scrollbar is not required */
+            zoom = (double)allocation.width / (double)gdk_pixbuf_get_width (priv->pixbuf);
+
+            if ((zoom * gdk_pixbuf_get_height (priv->pixbuf)) > allocation.height)
+            {                       /* need to display the vertical scrollbar so reduce width
+                                       available to show width without horizontal scrollbar */
+                if (!gtk_widget_get_visible (GTK_WIDGET (priv->vbar)))
+                    g_object_set (G_OBJECT (priv->vbar), "visible", TRUE, NULL);    /* show the vertical scrollbar so
+                                                                                       that its width can be determined */
+
+                gtk_widget_get_preferred_size (priv->vbar, &req, NULL);
+
+                zoom = (double)(allocation.width - req.width) / (double)gdk_pixbuf_get_width (priv->pixbuf);
+
+                                            /* avoid having blank bars on all 4 sides as would be the case if,
+                                               with the reduced zoom, the vertical scrollbar is no longer needed.
+                                               Get rid of the top and bottom bars and reduce the width of the side bars */
+                if ((zoom * gdk_pixbuf_get_height (priv->pixbuf)) < allocation.height)
+                    zoom = (double)allocation.height / (double)gdk_pixbuf_get_height (priv->pixbuf);
+            }
+
+            if (zoom > MAX_ZOOM_FACTOR)
+                zoom = MAX_ZOOM_FACTOR;
+            else if (zoom < MIN_ZOOM_FACTOR)
+                zoom = MIN_ZOOM_FACTOR;
+
+            do_zoom = TRUE;
+        }
+        break;
+
 	case GDK_KEY_1:
         if (!(event->state & modifiers)) {
 
@@ -1663,17 +1764,25 @@ display_key_press_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
 
             if ((gdk_pixbuf_get_width (priv->pixbuf) <= allocation.width)
                 && (gdk_pixbuf_get_height (priv->pixbuf) <= allocation.height))
-                    zoom = 1.0;                         // the 1:1 image fits in the window
+            {
+                zoom = 1.0;                         /* the 1:1 image fits in the window */
+                priv->xofs = 0;                     /* as zoomed to fit the offsets must be 0 */
+                priv->yofs = 0;
+            }
             else
             {
                 if (DOUBLE_EQUAL(priv->zoom, 1.0))
+                {
                     zoom = zoom_for_fit;
+                    priv->xofs = 0;             /* as zoomed to fit the offsets must be 0 */
+                    priv->yofs = 0;
+                }
                 else
                     zoom = 1.0;
             }
 
-                            // the following two statements are necessary otherwise if the 1:1 image
-                            //  is dragged the alignment is thrown out
+                            /* the following two statements are necessary otherwise if the 1:1 image
+                               is dragged the alignment is thrown out */
             if (DOUBLE_EQUAL(priv->zoom,zoom_for_fit))
             {
                 priv->xofs = 0;
@@ -1698,7 +1807,13 @@ display_key_press_event (GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 		gdk_window_get_device_position (gtk_widget_get_window (widget), device,
 					&x, &y, NULL);
-		set_zoom (view, zoom, TRUE, x, y);
+
+		set_zoom (view, zoom, TRUE, x, y, TRUE);    /* need to force a redisplay of the image after
+                                                       the call of set_zoom_fit() above otherwise
+                                                        pressing Shift W (or H) after W (or H) has no
+                                                        effect whereas the image should scroll
+                                                        (assuming that the height (or width respectively)
+                                                        is larger than will fit in the window) */
 	}
 
 	if (do_scroll)
@@ -1795,11 +1910,7 @@ xviewer_scroll_view_button_release_event (GtkWidget *widget, GdkEventButton *eve
 	return TRUE;
 }
 
-/* Scroll event handler for the image view.  We zoom with an event without
- * modifiers rather than scroll; we use the Shift modifier to scroll.
- * Rationale: images are not primarily vertical, and in XVIEWER you scan scroll by
- * dragging the image with button 1 anyways.
- */
+/* Scroll event handler for the image view */
 static gboolean
 xviewer_scroll_view_scroll_event (GtkWidget *widget, GdkEventScroll *event, gpointer data)
 {
@@ -1807,9 +1918,18 @@ xviewer_scroll_view_scroll_event (GtkWidget *widget, GdkEventScroll *event, gpoi
 	XviewerScrollViewPrivate *priv;
 	double zoom_factor;
 	int xofs, yofs;
+    int button_combination;         /* 0 = scroll, 1 = scroll + shift, 2 = scroll + ctrl, 3 = scroll + shift + ctrl
+                                        4..7 as 0..3 but for tilt wheel */
+    int action;                     /* 0 = zoom, 1 = vertical pan, 2 = horizontal pan, 3 = next/prev image */
+    static guint32 mouse_wheel_time = 0;     /* used to debounce the mouse wheel (scroll and tilt)
+                                                         when used for next/previous image or rotate image */
+
+
 
 	view = XVIEWER_SCROLL_VIEW (data);
 	priv = view->priv;
+
+	priv->view_settings = g_settings_new (XVIEWER_CONF_VIEW);
 
 	/* Compute zoom factor and scrolling offsets; we'll only use either of them */
 	/* same as in gtkscrolledwindow.c */
@@ -1817,52 +1937,196 @@ xviewer_scroll_view_scroll_event (GtkWidget *widget, GdkEventScroll *event, gpoi
 	yofs = gtk_adjustment_get_page_increment (priv->vadj) / 2;
 
 	switch (event->direction) {
-	case GDK_SCROLL_UP:
-		zoom_factor = priv->zoom_multiplier;
-		xofs = 0;
-		yofs = -yofs;
-		break;
+	    case GDK_SCROLL_UP:
+            button_combination = 0;     /* scroll wheel */
+		    break;
 
-	case GDK_SCROLL_LEFT:
-		zoom_factor = 1.0 / priv->zoom_multiplier;
-		xofs = -xofs;
-		yofs = 0;
-		break;
+	    case GDK_SCROLL_LEFT:
+            button_combination = 4;     /* tilt wheel */
+		    break;
 
-	case GDK_SCROLL_DOWN:
-		zoom_factor = 1.0 / priv->zoom_multiplier;
-		xofs = 0;
-		yofs = yofs;
-		break;
+	    case GDK_SCROLL_DOWN:
+            button_combination = 0;     /* scroll wheel */
+		    break;
 
-	case GDK_SCROLL_RIGHT:
-		zoom_factor = priv->zoom_multiplier;
-		xofs = xofs;
-		yofs = 0;
-		break;
+	    case GDK_SCROLL_RIGHT:
+            button_combination = 4;     /* tilt wheel */
+		    break;
 
-	default:
-		g_assert_not_reached ();
-		return FALSE;
+	    default:
+		    g_assert_not_reached ();
+		    return FALSE;
 	}
 
-        if (priv->scroll_wheel_zoom) {
-		if (event->state & GDK_SHIFT_MASK)
-			scroll_by (view, yofs, xofs);
-		else if (event->state & GDK_CONTROL_MASK)
+    if (event->state & GDK_SHIFT_MASK)
+        button_combination++;
+
+    if (event->state & GDK_CONTROL_MASK)
+        button_combination += 2;
+
+    switch (button_combination)
+    {
+        case 0:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_SCROLL_ACTION);
+            break;
+        case 1:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_SCROLL_SHIFT_ACTION);
+            break;
+        case 2:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_SCROLL_CTRL_ACTION);
+            break;
+        case 3:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_SCROLL_SHIFT_CTRL_ACTION);
+            break;
+        case 4:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_TILT_ACTION);
+            break;
+        case 5:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_TILT_SHIFT_ACTION);
+            break;
+        case 6:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_TILT_CTRL_ACTION);
+            break;
+        case 7:
+            action = g_settings_get_int(priv->view_settings,
+				     XVIEWER_CONF_VIEW_TILT_SHIFT_CTRL_ACTION);
+            break;
+    }
+
+    switch (action)
+    {
+        case 0:                             /* zoom */
+            if ((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_RIGHT))
+                zoom_factor = priv->zoom_multiplier;
+            else
+                zoom_factor = 1.0 / priv->zoom_multiplier;
+            set_zoom (view, priv->zoom * zoom_factor, TRUE, event->x, event->y, FALSE);
+            break;
+
+        case 1:                             /* vertical pan */
+            xofs = 0;
+            if ((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_RIGHT))
+                yofs = -yofs;
+            else
+                yofs = yofs;
 			scroll_by (view, xofs, yofs);
-		else
-			set_zoom (view, priv->zoom * zoom_factor,
-				  TRUE, event->x, event->y);
-	} else {
-		if (event->state & GDK_SHIFT_MASK)
-			scroll_by (view, yofs, xofs);
-		else if (event->state & GDK_CONTROL_MASK)
-			set_zoom (view, priv->zoom * zoom_factor,
-				  TRUE, event->x, event->y);
-		else
+            break;
+
+        case 2:                             /* horizontal pan */
+            yofs = 0;
+            if ((event->direction == GDK_SCROLL_DOWN) || (event->direction == GDK_SCROLL_RIGHT))
+                xofs = xofs;
+            else
+                xofs = -xofs;
 			scroll_by (view, xofs, yofs);
+            break;
+
+        case 3:                             /* move to next/prev image */
+        {
+            GdkEventButton button_event;
+
+            button_event.type = GDK_BUTTON_PRESS;
+            button_event.window = gtk_widget_get_window(widget);
+            button_event.send_event = TRUE;
+            button_event.time = g_get_monotonic_time() / 1000;
+            button_event.x = 0.0;         /* coordinate parameters are irrelevant for this button press */
+            button_event.y = 0.0;
+            button_event.axes = NULL;
+            button_event.state = 0;
+            if ((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_LEFT))
+                button_event.button = 8;
+            else
+                button_event.button = 9;
+
+            button_event.device = event->device;
+            button_event.x_root = 0.0;
+            button_event.y_root = 0.0;
+
+
+            if (button_event.time - mouse_wheel_time > 400) /* 400 msec debounce of mouse wheel */
+            {
+                gtk_main_do_event((GdkEvent *)&button_event);
+
+                mouse_wheel_time = button_event.time;
+            }
+
+            break;
         }
+
+        case 4:                             /* Rotate image 90 CW or CCW */
+        {
+            GdkKeymapKey* keys;
+            gint n_keys;
+            guint keyval;
+            guint state;
+            GdkEventKey key_event;
+
+            keyval = GDK_KEY_R;
+
+            if ((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_LEFT))
+                state = GDK_CONTROL_MASK + GDK_SHIFT_MASK;
+            else
+                state = GDK_CONTROL_MASK;
+
+            gdk_keymap_get_entries_for_keyval(gdk_keymap_get_for_display (gtk_widget_get_display(widget)),
+                                          keyval,
+                                          &keys,
+                                          &n_keys);
+
+ 
+
+            key_event.type = GDK_KEY_PRESS;
+            key_event.window = gtk_widget_get_window(widget);
+            key_event.send_event = TRUE;
+            key_event.time = g_get_monotonic_time() / 1000;
+            key_event.state = state;
+            key_event.keyval = keyval;
+            key_event.length = 0;
+            key_event.string = NULL;
+            key_event.hardware_keycode = keys[0].keycode;
+            key_event.group = keys[0].group;
+            key_event.is_modifier = FALSE;
+
+            if (key_event.time - mouse_wheel_time > 400) /* 400 msec debounce of mouse wheel */
+            {
+                                /* When generating a mouse button event the event structure contains the device
+                                   ID for the mouse (see case 3 above) and no Gdk-Warning is generated. The Key
+                                   event structure has no device ID member and Gdk reports a warning that:
+
+                                  "Event with type 8 not holding a GdkDevice. It is most likely synthesized
+                                   outside Gdk/GTK+"
+
+                                   The following code therefore temporarily suppresses stderr to avoid showing
+                                   this warning when (given the Gdk implementation) it is expected - and untidy! */
+                int old_stderr, new_stderr;
+
+                fflush(stderr);
+                old_stderr = dup(2);
+                new_stderr = open("/dev/null", O_WRONLY);
+                dup2(new_stderr, 2);
+                close(new_stderr);
+
+                gtk_main_do_event((GdkEvent *)&key_event);
+
+                fflush(stderr);             /* restore normal stderr output */
+                dup2(old_stderr, 2);
+                close(old_stderr);
+
+                mouse_wheel_time = key_event.time;
+            }
+            break;
+        }
+
+
+        /* case 5 = no action */
+    }
 
 	return TRUE;
 }
@@ -2088,7 +2352,12 @@ display_draw (GtkWidget *widget, cairo_t *cr, gpointer data)
 			if ((is_zoomed_in (view) && priv->interp_type_in != CAIRO_FILTER_NEAREST) ||
 				(is_zoomed_out (view) && priv->interp_type_out != CAIRO_FILTER_NEAREST)) {
 				// CAIRO_FILTER_GOOD is too slow during zoom changes, so use CAIRO_FILTER_BILINEAR instead
-				interp_type = CAIRO_FILTER_BILINEAR;
+				/* interp_type = CAIRO_FILTER_BILINEAR; */
+                interp_type = CAIRO_FILTER_GOOD;    /* revert to using CAIRO_FILTER_GOOD to fix issue #24.
+                                                        Using CAIRO_FILTER_BILINEAR results in a blank display
+                                                        for the affected images - it also aeems to be slower than
+                                                        CAIRO_FILTER_GOOD (as of 26.9.2021) in contradiction to the
+                                                        earlier statement. */
 			}
 			else {
 				interp_type = CAIRO_FILTER_NEAREST;
@@ -2155,7 +2424,7 @@ zoom_gesture_update_cb (GtkGestureZoom   *gesture,
 
 	drag_to (view, center_x, center_y);
 	set_zoom (view, priv->initial_zoom * scale, TRUE,
-		  center_x, center_y);
+		  center_x, center_y, FALSE);
 }
 
 static void
@@ -2628,7 +2897,7 @@ xviewer_scroll_view_zoom_in (XviewerScrollView *view, gboolean smooth)
 			zoom = preferred_zoom_levels [i];
 		}
 	}
-	set_zoom (view, zoom, FALSE, 0, 0);
+	set_zoom (view, zoom, FALSE, 0, 0, FALSE);
 
 }
 
@@ -2663,7 +2932,7 @@ xviewer_scroll_view_zoom_out (XviewerScrollView *view, gboolean smooth)
 			zoom = preferred_zoom_levels [i];
 		}
 	}
-	set_zoom (view, zoom, FALSE, 0, 0);
+	set_zoom (view, zoom, FALSE, 0, 0, FALSE);
 }
 
 static void
@@ -2681,7 +2950,7 @@ xviewer_scroll_view_set_zoom (XviewerScrollView *view, double zoom)
 {
 	g_return_if_fail (XVIEWER_IS_SCROLL_VIEW (view));
 
-	set_zoom (view, zoom, FALSE, 0, 0);
+	set_zoom (view, zoom, FALSE, 0, 0, FALSE);
 }
 
 double
@@ -3436,7 +3705,7 @@ xviewer_scroll_view_set_popup (XviewerScrollView *view,
 	g_return_if_fail (XVIEWER_IS_SCROLL_VIEW (view));
 	g_return_if_fail (view->priv->menu == NULL);
 
-	view->priv->menu = g_object_ref (menu);
+	view->priv->menu = GTK_WIDGET (g_object_ref (menu));
 
 	gtk_menu_attach_to_widget (GTK_MENU (view->priv->menu),
 				   GTK_WIDGET (view),

@@ -14,16 +14,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "http://bugzilla.gnome.org/enter_bug.cgi?product=xviewer&keywords=I18N+L10N&co"
 "mponent=general\n"
-"POT-Creation-Date: 2017-10-26 12:06+0100\n"
-"PO-Revision-Date: 2018-05-19 05:59+0000\n"
-"Last-Translator: Pavol Vesely <Unknown>\n"
+"POT-Creation-Date: 2021-11-29 10:03+0000\n"
+"PO-Revision-Date: 2021-06-08 10:42+0000\n"
+"Last-Translator: Vendelín Slezák <Unknown>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Launchpad-Export-Date: 2020-01-06 10:06+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2021-12-31 12:23+0000\n"
+"X-Generator: Launchpad (build adb364d6a74a28e7b95d51cd30446ec16160de6c)\n"
 "Language: sk\n"
 
 #. Translaters: This string is for a toggle to display a toolbar.
@@ -73,43 +73,43 @@ msgid "Separator"
 msgstr "Oddeľovač"
 
 # menu
-#: ../data/xviewer-app-menu.xml.h:1 ../src/xviewer-window.c:4108
+#: ../data/xviewer-app-menu.xml.h:1 ../src/xviewer-window.c:4234
 msgid "_View"
 msgstr "_Zobraziť"
 
 # menu View
-#: ../data/xviewer-app-menu.xml.h:2 ../src/xviewer-window.c:4131
+#: ../data/xviewer-app-menu.xml.h:2 ../src/xviewer-window.c:4259
 msgid "_Toolbar"
 msgstr "Panel _nástrojov"
 
 # menu View
-#: ../data/xviewer-app-menu.xml.h:3 ../src/xviewer-window.c:4134
+#: ../data/xviewer-app-menu.xml.h:3 ../src/xviewer-window.c:4262
 msgid "_Statusbar"
 msgstr "_Stavový panel"
 
 # menu View
-#: ../data/xviewer-app-menu.xml.h:4 ../src/xviewer-window.c:4137
+#: ../data/xviewer-app-menu.xml.h:4 ../src/xviewer-window.c:4265
 msgid "_Image Gallery"
 msgstr "_Galéria obrázkov"
 
 # menu View
-#: ../data/xviewer-app-menu.xml.h:5 ../src/xviewer-window.c:4140
+#: ../data/xviewer-app-menu.xml.h:5 ../src/xviewer-window.c:4268
 msgid "Side _Pane"
 msgstr "_Bočný panel"
 
 # menu
-#: ../data/xviewer-app-menu.xml.h:6 ../src/xviewer-window.c:4119
+#: ../data/xviewer-app-menu.xml.h:6 ../src/xviewer-window.c:4247
 msgid "Prefere_nces"
 msgstr "Nas_tavenia"
 
 # menu
 #: ../data/xviewer-app-menu.xml.h:7 ../data/xviewer-preferences-dialog.ui.h:2
-#: ../src/xviewer-window.c:4111
+#: ../src/xviewer-window.c:4237
 msgid "_Help"
 msgstr "_Pomocník"
 
 # action entry
-#: ../data/xviewer-app-menu.xml.h:8 ../src/xviewer-window.c:4125
+#: ../data/xviewer-app-menu.xml.h:8 ../src/xviewer-window.c:4253
 msgid "_About"
 msgstr "O _programe"
 
@@ -153,7 +153,7 @@ msgid "Picture;Slideshow;Graphics;"
 msgstr "Obrázok;Prezentácia;Grafika;Prehliadanie;"
 
 # GtkDialog title
-#: ../data/xviewer-image-properties-dialog.ui.h:1 ../src/xviewer-window.c:5096
+#: ../data/xviewer-image-properties-dialog.ui.h:1 ../src/xviewer-window.c:5375
 msgid "Image Properties"
 msgstr "Vlastnosti obrázka"
 
@@ -169,7 +169,7 @@ msgstr "_Nasledujúci"
 
 # action entry
 #: ../data/xviewer-image-properties-dialog.ui.h:4
-#: ../data/xviewer-preferences-dialog.ui.h:3 ../src/xviewer-window.c:4116
+#: ../data/xviewer-preferences-dialog.ui.h:3 ../src/xviewer-window.c:4244
 msgid "_Close"
 msgstr "Za_vrieť"
 
@@ -314,8 +314,8 @@ msgstr "Uloženie ako"
 #: ../src/xviewer-close-confirmation-dialog.c:172
 #: ../src/xviewer-error-message-area.c:119 ../src/xviewer-file-chooser.c:456
 #: ../src/xviewer-file-chooser.c:464 ../src/xviewer-file-chooser.c:472
-#: ../src/xviewer-window.c:3423 ../src/xviewer-window.c:3426
-#: ../src/xviewer-window.c:3691
+#: ../src/xviewer-window.c:3464 ../src/xviewer-window.c:3468
+#: ../src/xviewer-window.c:3735
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
@@ -424,7 +424,6 @@ msgstr "Ako vlastná farba:"
 
 # GtkColor title
 #: ../data/xviewer-preferences-dialog.ui.h:10
-#: ../data/org.x.viewer.gschema.xml.in.h:3
 msgid "Background Color"
 msgstr "Farba pozadia"
 
@@ -484,273 +483,75 @@ msgstr "Čas _medzi obrázkami:"
 msgid "_Loop sequence"
 msgstr "_Opakovať postupnosť"
 
-# tab GtkLabel label
 #: ../data/xviewer-preferences-dialog.ui.h:23
+msgid "Control"
+msgstr "CTRL"
+
+#: ../data/xviewer-preferences-dialog.ui.h:24
+msgid "Pause and resume with the spacebar"
+msgstr ""
+
+# tab GtkLabel label
+#: ../data/xviewer-preferences-dialog.ui.h:25
 msgid "Slideshow"
 msgstr "Prezentácia"
 
+#: ../data/xviewer-preferences-dialog.ui.h:26
+msgid "Scroll Wheel"
+msgstr ""
+
+#: ../data/xviewer-preferences-dialog.ui.h:27
+msgid "Wheel"
+msgstr "Koliesko"
+
+#: ../data/xviewer-preferences-dialog.ui.h:28
+msgid "Zoom"
+msgstr "Lupa"
+
+#: ../data/xviewer-preferences-dialog.ui.h:29
+msgid "Vertical Scrolling"
+msgstr "Vertikálne posúvanie"
+
+#: ../data/xviewer-preferences-dialog.ui.h:30
+msgid "Horizontal Scrolling"
+msgstr "Horizontálne posúvanie"
+
+#: ../data/xviewer-preferences-dialog.ui.h:31
+msgid "Previous/Next Image"
+msgstr "Predchádzajúci/nasledujúci obrázok"
+
+#: ../data/xviewer-preferences-dialog.ui.h:32
+msgid "Rotate 90 degrees"
+msgstr "Otočiť o 90 stupňov"
+
+#: ../data/xviewer-preferences-dialog.ui.h:33
+msgid "No Action"
+msgstr "Žiadna akcia"
+
+#: ../data/xviewer-preferences-dialog.ui.h:34
+msgid "Shift + Wheel"
+msgstr "Shift + Koliesko"
+
+#: ../data/xviewer-preferences-dialog.ui.h:35
+msgid "Control + Wheel"
+msgstr "CTRL + Koliesko"
+
+#: ../data/xviewer-preferences-dialog.ui.h:36
+msgid "Shift + Control + Wheel"
+msgstr "Shift + CTRL + Koliesko"
+
+#: ../data/xviewer-preferences-dialog.ui.h:37
+msgid "Tilt Wheel"
+msgstr ""
+
+#: ../data/xviewer-preferences-dialog.ui.h:38
+msgid "Mouse"
+msgstr "Myš"
+
 # tab GtkLabel label
-#: ../data/xviewer-preferences-dialog.ui.h:24
+#: ../data/xviewer-preferences-dialog.ui.h:39
 msgid "Plugins"
 msgstr "Zásuvné moduly"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:1
-msgid "Automatic orientation"
-msgstr "Automatická orientácia"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:2
-msgid ""
-"Whether the image should be rotated automatically based on EXIF orientation."
-msgstr "Či sa má obrázok automaticky otáčať podľa orientácie EXIF."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:4
-msgid ""
-"The color that is used to fill the area behind the image. If the use-"
-"background-color key is not set, the color is determined by the active GTK+ "
-"theme instead."
-msgstr ""
-"Farba, ktorá sa používa na vyplnenie plochy za obrázkom. Ak kľúč use-"
-"background-color nie je nastavený, farba je namiesto toho určená podľa "
-"aktívnej GTK+ témy."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:5
-msgid "Interpolate Image"
-msgstr "Interpolovať obrázok"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:6
-msgid ""
-"Whether the image should be interpolated on zoom-out. This leads to better "
-"quality but is somewhat slower than non-interpolated images."
-msgstr ""
-"Či sa má pri zmenšení obrázok interpolovať. Dôjde k zlepšeniu kvality ale "
-"načítavanie bude o niečo pomalšie ako pri neinterpolovanom obrázku."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:7
-msgid "Extrapolate Image"
-msgstr "Extrapolovať obrázok"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:8
-msgid ""
-"Whether the image should be extrapolated on zoom-in. This leads to blurry "
-"quality and is somewhat slower than non-extrapolated images."
-msgstr ""
-"Či sa má pri zväčšení obrázok extrapolovať. Dôjde k rozmazaniu a načítavanie "
-"bude o niečo pomalšie ako pri neextrapolovanom obrázku."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:9
-msgid "Transparency indicator"
-msgstr "Indikátor priehľadnosti"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:10
-msgid ""
-"Determines how transparency should be indicated. Valid values are "
-"CHECK_PATTERN, COLOR and NONE. If COLOR is chosen, then the trans-color key "
-"determines the color value used."
-msgstr ""
-"Určuje, ako sa má označiť priehľadnosť. Možné hodnoty sú "
-"CHECK_PATTERN(ŠACHOVNICA), COLOR(FARBA) a NONE(ŽIADNA). Ak použijete COLOR, "
-"použitú farbu určuje hodnota kľúča trans-color."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:11
-msgid "Scroll wheel zoom"
-msgstr "Zmena mierky rolovacím kolieskom"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:12
-msgid "Whether the scroll wheel should be used for zooming."
-msgstr "Či sa má rolovacie koliesko používať na zmenu mierky zobrazenia."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:13
-msgid "Zoom multiplier"
-msgstr "Násobok zmeny mierky"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:15
-#, no-c-format
-msgid ""
-"The multiplier to be applied when using the mouse scroll wheel for zooming. "
-"This value defines the zooming step used for each scroll event. For example, "
-"0.05 results in a 5% zoom increment for each scroll event and 1.00 result in "
-"a 100% zoom increment."
-msgstr ""
-"Násobok, ktorý sa má použiť pri zmene mierky rolovacím kolieskom. Táto "
-"hodnota určuje krok zmeny mierky použitý pre každú udalosť rolovacieho "
-"kolieska. Napríklad, hodnota 0.05 znamená zväčšenie o 5% pre každú rolovaciu "
-"udalosť a 1.00 znamená zväčšenie o 100%."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:16
-msgid "Transparency color"
-msgstr "Farba priehľadnosti"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:17
-msgid ""
-"If the transparency key has the value COLOR, then this key determines the "
-"color which is used for indicating transparency."
-msgstr ""
-"Ak má kľúč transparency hodnotu COLOR, tento kľúč určuje farbu, ktorá sa má "
-"použiť na označenie priehľadných častí."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:18
-msgid "Use a custom background color"
-msgstr "Použiť vlastnú farbu pozadia"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:19
-msgid ""
-"If this is active, the color set by the background-color key will be used to "
-"fill the area behind the image. If it is not set, the current GTK+ theme "
-"will determine the fill color."
-msgstr ""
-"Ak je táto položka aktívna, farba nastavená kľúčom background-color bude "
-"použitá na vyplnenie oblasti za obrázkom. Ak táto položka nie je nastavená, "
-"aktuálna GTK+ téma určí farbu výplne."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:20
-msgid "Loop through the image sequence"
-msgstr "Opakovať postupnosť obrázkov"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:21
-msgid "Whether the sequence of images should be shown in an endless loop."
-msgstr "Či sa má opakovať postupnosť obrázkov donekonečna."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:23
-#, no-c-format
-msgid "Allow zoom greater than 100% initially"
-msgstr "Povoliť počiatočnú mierku väčšiu ako 100%"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:24
-msgid ""
-"If this is set to FALSE small images will not be stretched to fit into the "
-"screen initially."
-msgstr ""
-"Ak je táto hodnota nastavené na FALSE, malé obrázky sa nebudú rozťahovať na "
-"celú obrazovku."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:25
-msgid "Delay in seconds until showing the next image"
-msgstr "Oneskorenie v sekundách pred zobrazením nasledujúceho obrázka"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:26
-msgid ""
-"A value greater than 0 determines the seconds an image stays on screen until "
-"the next one is shown automatically. Zero disables the automatic browsing."
-msgstr ""
-"Hodnota väčšia ako 0 určuje počet sekúnd, počas ktorých zostane obrázok "
-"zobrazený, pred automatickým zobrazením ďalšieho. Nula vypne automatické "
-"prezeranie."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:27
-msgid "Show/Hide the window toolbar."
-msgstr "Zobraziť/skryť panel nástrojov okna."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:28
-msgid "Show/Hide the window statusbar."
-msgstr "Zobraziť/skryť stavový panel okna."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:29
-msgid "Show/Hide the image gallery pane."
-msgstr "Zobraziť/skryť panel galérie obrázkov."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:30
-msgid ""
-"Image gallery pane position. Set to 0 for bottom; 1 for left; 2 for top; 3 "
-"for right."
-msgstr ""
-"Umiestnenie panelu galérie obrázkov. Zadajte 0 pre dole, 1 pre vľavo, 2 pre "
-"hore, 3 pre vpravo."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:31
-msgid "Whether the image gallery pane should be resizable."
-msgstr "Či je možné meniť veľkosť panelu galérie obrázkov."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:32
-msgid "Show/Hide the window side pane."
-msgstr "Zobraziť/skryť bočný panel okna."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:33
-msgid "Show/Hide the image gallery pane scroll buttons."
-msgstr "Zobraziť/skryť tlačidlá pre posun v paneli galérie obrázkov."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:34
-msgid "Close main window without asking to save changes."
-msgstr "Zavrieť hlavné okno bez vyzvania na uloženie zmien."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:35
-msgid "Trash images without asking"
-msgstr "Zahodiť obrázky bez opýtania"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:36
-msgid ""
-"If activated, Xviewer won't ask for confirmation when moving images to the "
-"trash. It will still ask if any of the files cannot be moved to the trash "
-"and would be deleted instead."
-msgstr ""
-"Ak je aktivované, Oko GNOME nebude žiadať potvrdenie pri premiestňovaní "
-"obrázkov do Koša. Stále budete vyzvaný, pokiaľ niektorý z obrázkov nebude "
-"môcť byť presunutý do koša a namiesto toho bude zmazaný."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:37
-msgid ""
-"Whether the file chooser should show the user's pictures folder if no images "
-"are loaded."
-msgstr ""
-"Či má prehliadač súborov zobraziť používateľov priečinok s obrázkami, ak nie "
-"sú načítané žiadne obrázky."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:38
-msgid ""
-"If activated and no image is loaded in the active window, the file chooser "
-"will display the user's pictures folder using the XDG special user "
-"directories. If deactivated or the pictures folder has not been set up, it "
-"will show the current working directory."
-msgstr ""
-"Ak je aktivované a žiaden obrázok nie je načítaný v aktívnom okne, "
-"prehliadač súborov zobrazí používateľov priečinok s obrázkami pomocou "
-"špeciálnych používateľských XDG priečinkov. Ak je deaktivované alebo "
-"priečinok s obrázkami nebol nastavený, bude zobrazený aktuálny pracovný "
-"priečinok."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:39
-msgid ""
-"Whether the metadata list in the properties dialog should have its own page."
-msgstr "Či má mať zoznam metaúdajov vlastnú stránku v okne vlastností."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:40
-msgid ""
-"If activated, the detailed metadata list in the properties dialog will be "
-"moved to its own page in the dialog. This should make the dialog more usable "
-"on smaller screens, e.g. as used by netbooks. If disabled, the widget will "
-"be embedded on the \"Metadata\" page."
-msgstr ""
-"Ak je aktivované, podrobný zoznam s metaúdajmi v okne vlastností bude "
-"premiestnený na vlastnú stránku v okne. Malo by to pomôcť s ergonomikou na "
-"menších obrazovkách, aké sú napr. používané netbookmi. Ak zakázané, widget "
-"bude vložený na „Metadata“ stránku."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:41
-msgid "External program to use for editing images"
-msgstr "Externý program na úpravu obrázkov"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:42
-msgid ""
-"The desktop file name (including the \".desktop\") of the application to use "
-"for editing images (when the \"Edit Image\" toolbar button is clicked). Set "
-"to the empty string to disable this feature."
-msgstr ""
-"Názov súboru pracovnej plochy (vrátane „.desktop“) pre aplikáciu, ktorá sa "
-"použije na úpravu obrázkov (po kliknutí na tlačidlo panelu „Upraviť "
-"obrázok“). Na vypnutie tejto vlasnosti zadajte prázdny reťazec."
-
-#: ../data/org.x.viewer.gschema.xml.in.h:43
-msgid "Active plugins"
-msgstr "Aktívne zásuvné moduly"
-
-#: ../data/org.x.viewer.gschema.xml.in.h:44
-msgid ""
-"List of active plugins. It doesn't contain the \"Location\" of the active "
-"plugins. See the .xviewer-plugin file for obtaining the \"Location\" of a "
-"given plugin."
-msgstr ""
-"Zoznam aktívnych zásuvných modulov. Neobsahuje „Umiestnenie“ aktívnych "
-"zásuvných modulov. Ak chcete zistiť „Umiestnenie“ aktívnych modulov pozrite "
-"si, prosím, súbor .xviewer-plugin"
 
 # button
 #: ../src/xviewer-close-confirmation-dialog.c:166
@@ -759,7 +560,7 @@ msgstr "Zavrieť _bez uloženia"
 
 # action entry
 #: ../src/xviewer-close-confirmation-dialog.c:178
-#: ../src/xviewer-file-chooser.c:465 ../src/xviewer-window.c:4146
+#: ../src/xviewer-file-chooser.c:465 ../src/xviewer-window.c:4274
 msgid "_Save"
 msgstr "_Uložiť"
 
@@ -797,13 +598,13 @@ msgid "If you don't save, all your changes will be lost."
 msgstr "Pokiaľ neuložíte, všetky vaše zmeny budú stratené."
 
 # button
-#: ../src/xviewer-error-message-area.c:124 ../src/xviewer-window.c:875
-#: ../src/xviewer-window.c:4200
+#: ../src/xviewer-error-message-area.c:124 ../src/xviewer-window.c:882
+#: ../src/xviewer-window.c:4334
 msgid "_Reload"
 msgstr "_Znovu načítať"
 
 # button
-#: ../src/xviewer-error-message-area.c:129 ../src/xviewer-window.c:4152
+#: ../src/xviewer-error-message-area.c:129 ../src/xviewer-window.c:4280
 msgid "Save _As…"
 msgstr "Uložiť _ako…"
 
@@ -987,27 +788,27 @@ msgstr "Transformácia nenačítaného obrázka."
 msgid "Transformation failed."
 msgstr "Transformácia zlyhala."
 
-#: ../src/xviewer-image.c:1138
+#: ../src/xviewer-image.c:1261
 #, c-format
 msgid "EXIF not supported for this file format."
 msgstr "Tento formát súboru nepodporuje EXIF."
 
-#: ../src/xviewer-image.c:1287
+#: ../src/xviewer-image.c:1410
 #, c-format
 msgid "Image loading failed."
 msgstr "Načítanie obrázka zlyhalo."
 
-#: ../src/xviewer-image.c:1868 ../src/xviewer-image.c:1988
+#: ../src/xviewer-image.c:1991 ../src/xviewer-image.c:2111
 #, c-format
 msgid "No image loaded."
 msgstr "Nenačítal sa žiaden obrázok."
 
-#: ../src/xviewer-image.c:1876 ../src/xviewer-image.c:1997
+#: ../src/xviewer-image.c:1999 ../src/xviewer-image.c:2120
 #, c-format
 msgid "You do not have the permissions necessary to save the file."
 msgstr "Nemáte práva potrebné na uloženie súboru."
 
-#: ../src/xviewer-image.c:1886 ../src/xviewer-image.c:2008
+#: ../src/xviewer-image.c:2009 ../src/xviewer-image.c:2131
 #, c-format
 msgid "Temporary file creation failed."
 msgstr "Nepodarilo sa vytvoriť dočasný súbor."
@@ -1032,11 +833,11 @@ msgid "File size:"
 msgstr "Veľkosť súboru:"
 
 #: ../src/xviewer-metadata-sidebar.c:521 ../src/xviewer-properties-dialog.c:737
-#: ../src/xviewer-window.c:4156
+#: ../src/xviewer-window.c:4284
 msgid "Show the folder which contains this file in the file manager"
 msgstr "Zobrazí priečinok obsahujúci tento súbor v správcovi súborov"
 
-#: ../src/xviewer-preferences-dialog.c:125
+#: ../src/xviewer-preferences-dialog.c:134
 #, c-format
 msgid "%lu second"
 msgid_plural "%lu seconds"
@@ -1201,7 +1002,7 @@ msgstr " (chybný Unicode)"
 #. * - image height
 #. * - image size in bytes
 #. * - zoom in percent
-#: ../src/xviewer-window.c:540
+#: ../src/xviewer-window.c:547
 #, c-format
 msgid "%i × %i pixel  %s    %i%%"
 msgid_plural "%i × %i pixels  %s    %i%%"
@@ -1209,14 +1010,14 @@ msgstr[0] "„%i × %i pixelov  %s    %i %%“"
 msgstr[1] "„%i × %i pixel  %s    %i %%“"
 msgstr[2] "„%i × %i pixely  %s    %i %%“"
 
-#: ../src/xviewer-window.c:877 ../src/xviewer-window.c:2840
+#: ../src/xviewer-window.c:884 ../src/xviewer-window.c:2880
 msgctxt "MessageArea"
 msgid "Hi_de"
 msgstr "S_kryť"
 
 #. The newline character is currently necessary due to a problem
 #. * with the automatic line break.
-#: ../src/xviewer-window.c:887
+#: ../src/xviewer-window.c:894
 #, c-format
 msgid ""
 "The image \"%s\" has been modified by an external application.\n"
@@ -1225,7 +1026,7 @@ msgstr ""
 "Obrázok „%s“ bol upravený externou aplikáciou.\n"
 "Chceli by ste ho znovu načítať?"
 
-#: ../src/xviewer-window.c:1051
+#: ../src/xviewer-window.c:1071
 #, c-format
 msgid "Use \"%s\" to open the selected image"
 msgstr "Použiť  „%s“ na otvorenie vybraného obrázka"
@@ -1235,22 +1036,22 @@ msgstr "Použiť  „%s“ na otvorenie vybraného obrázka"
 #. * - the original filename
 #. * - the current image's position in the queue
 #. * - the total number of images queued for saving
-#: ../src/xviewer-window.c:1207
+#: ../src/xviewer-window.c:1227
 #, c-format
 msgid "Saving image \"%s\" (%u/%u)"
 msgstr "Ukladá sa obrázok „%s“ (%u/%u)"
 
-#: ../src/xviewer-window.c:1602
+#: ../src/xviewer-window.c:1622
 #, c-format
 msgid "Opening image \"%s\""
 msgstr "Otvára sa obrázok „%s“"
 
 #. L10N: This the reason why the screensaver is inhibited.
-#: ../src/xviewer-window.c:2189
+#: ../src/xviewer-window.c:2208
 msgid "Viewing a slideshow"
 msgstr "Zobrazuje sa prezentácia"
 
-#: ../src/xviewer-window.c:2415
+#: ../src/xviewer-window.c:2455
 #, c-format
 msgid ""
 "Error printing file:\n"
@@ -1259,19 +1060,19 @@ msgstr ""
 "Chyba pri tlači obrázka:\n"
 "%s"
 
-#: ../src/xviewer-window.c:2768 ../src/xviewer-window.c:2783
+#: ../src/xviewer-window.c:2808 ../src/xviewer-window.c:2823
 msgid "Error launching System Settings: "
 msgstr "Chyba pri spúštaní systémových nastavení: "
 
 #. I18N: When setting mnemonics for these strings, watch out to not
 #. clash with mnemonics from xviewer's menubar
-#: ../src/xviewer-window.c:2838
+#: ../src/xviewer-window.c:2878
 msgid "_Open Background Preferences"
 msgstr "O_tvoriť nastavenia pozadia"
 
 #. The newline character is currently necessary due to a problem
 #. * with the automatic line break.
-#: ../src/xviewer-window.c:2854
+#: ../src/xviewer-window.c:2894
 #, c-format
 msgid ""
 "The image \"%s\" has been set as Desktop Background.\n"
@@ -1280,11 +1081,11 @@ msgstr ""
 "Obrázok „%s“ bol nastavený ako pozadie pracovnej plochy.\n"
 "Želáte si upraviť jeho vzhľad?"
 
-#: ../src/xviewer-window.c:3321
+#: ../src/xviewer-window.c:3361
 msgid "Saving image locally…"
 msgstr "Obrázok sa ukladá lokálne…"
 
-#: ../src/xviewer-window.c:3399
+#: ../src/xviewer-window.c:3440
 #, c-format
 msgid ""
 "Are you sure you want to remove\n"
@@ -1293,7 +1094,7 @@ msgstr ""
 "Naozaj chcete trvalo odstrániť\n"
 "„%s“?"
 
-#: ../src/xviewer-window.c:3402
+#: ../src/xviewer-window.c:3443
 #, c-format
 msgid ""
 "Are you sure you want to remove\n"
@@ -1312,42 +1113,42 @@ msgstr[2] ""
 "%d vybrané obrázky?"
 
 # GtkActionEnty
-#: ../src/xviewer-window.c:3424 ../src/xviewer-window.c:3702
+#: ../src/xviewer-window.c:3465 ../src/xviewer-window.c:3746
 msgid "_Delete"
 msgstr "O_dstrániť"
 
-#: ../src/xviewer-window.c:3427 ../src/xviewer-window.c:3704
+#: ../src/xviewer-window.c:3469 ../src/xviewer-window.c:3748
 msgid "_Yes"
 msgstr "Á_no"
 
 # checkbutton
 #. add 'dont ask again' button
-#: ../src/xviewer-window.c:3431 ../src/xviewer-window.c:3696
+#: ../src/xviewer-window.c:3474 ../src/xviewer-window.c:3740
 msgid "Do _not ask again during this session"
 msgstr "_Počas tejto relácie sa už nepýtať"
 
-#: ../src/xviewer-window.c:3475
+#: ../src/xviewer-window.c:3519
 #, c-format
 msgid "Couldn't retrieve image file"
 msgstr "Nepodarilo sa získať súbor obrázka"
 
-#: ../src/xviewer-window.c:3491
+#: ../src/xviewer-window.c:3535
 #, c-format
 msgid "Couldn't retrieve image file information"
 msgstr "Nepodarilo sa získať informácie o súbore obrázka"
 
-#: ../src/xviewer-window.c:3507 ../src/xviewer-window.c:3763
+#: ../src/xviewer-window.c:3551 ../src/xviewer-window.c:3807
 #, c-format
 msgid "Couldn't delete file"
 msgstr "Nebolo možné odstrániť súbor"
 
 #. set dialog error message
-#: ../src/xviewer-window.c:3557 ../src/xviewer-window.c:3859
+#: ../src/xviewer-window.c:3601 ../src/xviewer-window.c:3903
 #, c-format
 msgid "Error on deleting image %s"
 msgstr "Chyba pri odstraňovaní obrázka %s"
 
-#: ../src/xviewer-window.c:3664
+#: ../src/xviewer-window.c:3708
 #, c-format
 msgid ""
 "Are you sure you want to move\n"
@@ -1356,7 +1157,7 @@ msgstr ""
 "Naozaj chcete presunúť\n"
 "obrázok „%s“ do Koša?"
 
-#: ../src/xviewer-window.c:3667
+#: ../src/xviewer-window.c:3711
 #, c-format
 msgid ""
 "A trash for \"%s\" couldn't be found. Do you want to remove this image "
@@ -1364,7 +1165,7 @@ msgid ""
 msgstr ""
 "Nie je možné nájsť Kôš pre „%s“. Chcete natrvalo odstrániť tento obrázok?"
 
-#: ../src/xviewer-window.c:3672
+#: ../src/xviewer-window.c:3716
 #, c-format
 msgid ""
 "Are you sure you want to move\n"
@@ -1382,7 +1183,7 @@ msgstr[2] ""
 "Naozaj chcete presunúť\n"
 "%d zvolené obrázky do koša?"
 
-#: ../src/xviewer-window.c:3677
+#: ../src/xviewer-window.c:3721
 msgid ""
 "Some of the selected images can't be moved to the trash and will be removed "
 "permanently. Are you sure you want to proceed?"
@@ -1391,399 +1192,431 @@ msgstr ""
 "odstránené. Naozaj chcete pokračovať?"
 
 # button
-#: ../src/xviewer-window.c:3694 ../src/xviewer-window.c:4182
-#: ../src/xviewer-window.c:4212
+#: ../src/xviewer-window.c:3738 ../src/xviewer-window.c:4310
+#: ../src/xviewer-window.c:4349
 msgid "Move to _Trash"
 msgstr "Presunúť do _Koša"
 
-#: ../src/xviewer-window.c:3741 ../src/xviewer-window.c:3755
+#: ../src/xviewer-window.c:3785 ../src/xviewer-window.c:3799
 #, c-format
 msgid "Couldn't access trash."
 msgstr "Nepodarilo sa použiť Kôš."
 
-#: ../src/xviewer-window.c:4106
+#: ../src/xviewer-window.c:4232
 msgid "_File"
 msgstr "_Súbor"
 
 # action entry
-#: ../src/xviewer-window.c:4107
+#: ../src/xviewer-window.c:4233
 msgid "_Edit"
 msgstr "_Upraviť"
 
 # action entry
-#: ../src/xviewer-window.c:4109
+#: ../src/xviewer-window.c:4235
 msgid "_Go"
 msgstr "Prejsť _na"
 
 # action entry
-#: ../src/xviewer-window.c:4110
+#: ../src/xviewer-window.c:4236
 msgid "_Tools"
 msgstr "_Nástroje"
 
+#: ../src/xviewer-window.c:4238
+msgid "_Favorites"
+msgstr "_Obľúbené"
+
+#: ../src/xviewer-window.c:4239
+msgid "_Recents"
+msgstr "_Nedávne"
+
 # action entry
-#: ../src/xviewer-window.c:4113
+#: ../src/xviewer-window.c:4241
 msgid "_Open…"
 msgstr "_Otvoriť…"
 
 # tooltip
-#: ../src/xviewer-window.c:4114
+#: ../src/xviewer-window.c:4242
 msgid "Open a file"
 msgstr "Otvorí súbor"
 
 # tooltip
-#: ../src/xviewer-window.c:4117
+#: ../src/xviewer-window.c:4245
 msgid "Close window"
 msgstr "Zavrie okno"
 
 # tooltip
-#: ../src/xviewer-window.c:4120
+#: ../src/xviewer-window.c:4248
 msgid "Preferences for Image Viewer"
 msgstr "Nastavenia pre Prehliadač obrázkov"
 
 # action entry
-#: ../src/xviewer-window.c:4122
+#: ../src/xviewer-window.c:4250
 msgid "_Contents"
 msgstr "Ob_sah"
 
 # tooltip
-#: ../src/xviewer-window.c:4123
+#: ../src/xviewer-window.c:4251
 msgid "Help on this application"
 msgstr "Pomocník pre túto aplikáciu"
 
 # tooltip
-#: ../src/xviewer-window.c:4126
+#: ../src/xviewer-window.c:4254
 msgid "About this application"
 msgstr "O tejto aplikácii"
 
 # tooltip
-#: ../src/xviewer-window.c:4132
+#: ../src/xviewer-window.c:4260
 msgid "Changes the visibility of the toolbar in the current window"
 msgstr "Zmení viditeľnosť panela nástrojov v aktuálnom okne"
 
 # tooltip
-#: ../src/xviewer-window.c:4135
+#: ../src/xviewer-window.c:4263
 msgid "Changes the visibility of the statusbar in the current window"
 msgstr "Zmení viditeľnosť stavového panela v aktuálnom okne"
 
 # tooltip
-#: ../src/xviewer-window.c:4138
+#: ../src/xviewer-window.c:4266
 msgid ""
 "Changes the visibility of the image gallery pane in the current window"
 msgstr "Zmení viditeľnosť panelu galérie obrázkov v aktuálnom okne"
 
 # tooltip
-#: ../src/xviewer-window.c:4141
+#: ../src/xviewer-window.c:4269
 msgid "Changes the visibility of the side pane in the current window"
 msgstr "Zmení viditeľnosť bočného panelu v aktuálnom okne"
 
 # tooltip
-#: ../src/xviewer-window.c:4147
+#: ../src/xviewer-window.c:4275
 msgid "Save changes in currently selected images"
 msgstr "Uloží zmeny v aktuálne vybraných obrázkoch"
 
 # action entry
-#: ../src/xviewer-window.c:4149
+#: ../src/xviewer-window.c:4277
 msgid "Open _with"
 msgstr "Otvoriť v _programe"
 
 # tooltip
-#: ../src/xviewer-window.c:4150
+#: ../src/xviewer-window.c:4278
 msgid "Open the selected image with a different application"
 msgstr "Otvorí vybraný obrázok inou aplikáciou"
 
 # tooltip
-#: ../src/xviewer-window.c:4153
+#: ../src/xviewer-window.c:4281
 msgid "Save the selected images with a different name"
 msgstr "Uloží vybrané obrázky pod iným názvom"
 
 # action entry
-#: ../src/xviewer-window.c:4155
+#: ../src/xviewer-window.c:4283
 msgid "Show Containing _Folder"
 msgstr "Zobraziť p_riečinok obrázka"
 
 # action entry
-#: ../src/xviewer-window.c:4158
+#: ../src/xviewer-window.c:4286
 msgid "_Print…"
 msgstr "_Tlačiť…"
 
 # tooltip
-#: ../src/xviewer-window.c:4159
+#: ../src/xviewer-window.c:4287
 msgid "Print the selected image"
 msgstr "Vytlačí vybraný obrázok"
 
 # action entry
-#: ../src/xviewer-window.c:4161
+#: ../src/xviewer-window.c:4289
 msgid "Prope_rties"
 msgstr "_Vlastnosti"
 
 # tooltip
-#: ../src/xviewer-window.c:4162
+#: ../src/xviewer-window.c:4290
 msgid "Show the properties and metadata of the selected image"
 msgstr "Zobrazí vlastnosti a meta-údaje vybraného obrázka"
 
 # action entry
-#: ../src/xviewer-window.c:4164
+#: ../src/xviewer-window.c:4292
 msgid "_Undo"
 msgstr "Vrátiť _späť"
 
 # tooltip
-#: ../src/xviewer-window.c:4165
+#: ../src/xviewer-window.c:4293
 msgid "Undo the last change in the image"
 msgstr "Vráti späť poslednú úpravu obrázka"
 
 # action entry
-#: ../src/xviewer-window.c:4167
+#: ../src/xviewer-window.c:4295
 msgid "Flip _Horizontal"
 msgstr "Prevrátiť _vodorovne"
 
 # tooltip
-#: ../src/xviewer-window.c:4168
+#: ../src/xviewer-window.c:4296
 msgid "Mirror the image horizontally"
 msgstr "Preklopí obrázok vodorovne (zľava doprava)"
 
 # action entry
-#: ../src/xviewer-window.c:4170
+#: ../src/xviewer-window.c:4298
 msgid "Flip _Vertical"
 msgstr "Prevrátiť _zvislo"
 
 # tooltip
-#: ../src/xviewer-window.c:4171
+#: ../src/xviewer-window.c:4299
 msgid "Mirror the image vertically"
 msgstr "Preklopí obrázok zvislo (zhora nadol)"
 
 # action entry
-#: ../src/xviewer-window.c:4173
+#: ../src/xviewer-window.c:4301
 msgid "_Rotate Clockwise"
 msgstr "Otočiť v _smere hodinových ručičiek"
 
 # tooltip
-#: ../src/xviewer-window.c:4174
+#: ../src/xviewer-window.c:4302
 msgid "Rotate the image 90 degrees to the right"
 msgstr "Otočí obrázok o 90 stupňov doprava"
 
 # action entry
-#: ../src/xviewer-window.c:4176
+#: ../src/xviewer-window.c:4304
 msgid "Rotate Counterc_lockwise"
 msgstr "Otočiť _proti smeru hodinových ručičiek"
 
 # tooltip
-#: ../src/xviewer-window.c:4177
+#: ../src/xviewer-window.c:4305
 msgid "Rotate the image 90 degrees to the left"
 msgstr "Otočí obrázok o 90 stupňov doľava"
 
 # action entry
-#: ../src/xviewer-window.c:4179
+#: ../src/xviewer-window.c:4307
 msgid "Set as Wa_llpaper"
 msgstr "_Nastaviť ako pozadie"
 
 # tooltip
-#: ../src/xviewer-window.c:4180
+#: ../src/xviewer-window.c:4308
 msgid "Set the selected image as the wallpaper"
 msgstr "Nastaví vybraný obrázok ako pozadie plochy"
 
 # tooltip
-#: ../src/xviewer-window.c:4183
+#: ../src/xviewer-window.c:4311
 msgid "Move the selected image to the trash folder"
 msgstr "Presunie vybraný obrázok do priečinka Kôš"
 
 # action entry
-#: ../src/xviewer-window.c:4185
+#: ../src/xviewer-window.c:4313
 msgid "_Delete Image"
 msgstr "O_dstrániť obrázok"
 
 # tooltip
-#: ../src/xviewer-window.c:4186
+#: ../src/xviewer-window.c:4314
 msgid "Delete the selected image"
 msgstr "Odstráni vybraný obrázok"
 
 # action entry
-#: ../src/xviewer-window.c:4188
+#: ../src/xviewer-window.c:4316
 msgid "_Copy"
 msgstr "_Kopírovať"
 
 # tooltip
-#: ../src/xviewer-window.c:4189
+#: ../src/xviewer-window.c:4317
 msgid "Copy the selected image to the clipboard"
 msgstr "Skopíruje vybraný obrázok do schránky"
 
 # action entry
-#: ../src/xviewer-window.c:4191 ../src/xviewer-window.c:4203
-#: ../src/xviewer-window.c:4206
+#: ../src/xviewer-window.c:4319 ../src/xviewer-window.c:4337
+#: ../src/xviewer-window.c:4340
 msgid "_Zoom In"
 msgstr "Z_väčšiť"
 
 # tooltip
-#: ../src/xviewer-window.c:4192 ../src/xviewer-window.c:4204
+#: ../src/xviewer-window.c:4320 ../src/xviewer-window.c:4338
 msgid "Enlarge the image"
 msgstr "Zväčší obrázok"
 
 # action entry
-#: ../src/xviewer-window.c:4194 ../src/xviewer-window.c:4209
+#: ../src/xviewer-window.c:4322 ../src/xviewer-window.c:4343
 msgid "Zoom _Out"
 msgstr "Z_menšiť"
 
 # tooltip
-#: ../src/xviewer-window.c:4195 ../src/xviewer-window.c:4207
-#: ../src/xviewer-window.c:4210
+#: ../src/xviewer-window.c:4323 ../src/xviewer-window.c:4341
+#: ../src/xviewer-window.c:4344
 msgid "Shrink the image"
 msgstr "Zmenší obrázok"
 
 # action entry
-#: ../src/xviewer-window.c:4197
+#: ../src/xviewer-window.c:4325 ../src/xviewer-window.c:4346
 msgid "_Normal Size"
 msgstr "No_rmálna veľkosť"
 
 # tooltip
-#: ../src/xviewer-window.c:4198
+#: ../src/xviewer-window.c:4326 ../src/xviewer-window.c:4347
 msgid "Show the image at its normal size"
 msgstr "Zobrazí obrázok v jeho pôvodnej veľkosti"
 
-#: ../src/xviewer-window.c:4201
+#: ../src/xviewer-window.c:4328
+msgid "Fit to _Height"
+msgstr ""
+
+#: ../src/xviewer-window.c:4329
+msgid "Fit to height"
+msgstr ""
+
+#: ../src/xviewer-window.c:4331
+msgid "Fit to _Width"
+msgstr ""
+
+#: ../src/xviewer-window.c:4332
+msgid "Fit to width"
+msgstr ""
+
+#: ../src/xviewer-window.c:4335
 msgid "Reload the image"
 msgstr "Znovu načítať obrázok"
 
 # action entry
-#: ../src/xviewer-window.c:4218
+#: ../src/xviewer-window.c:4355
 msgid "_Fullscreen"
 msgstr "Na _celú obrazovku"
 
 # tooltip
-#: ../src/xviewer-window.c:4219
+#: ../src/xviewer-window.c:4356
 msgid "Show the current image in fullscreen mode"
 msgstr "Zobrazí aktuálny obrázok na celú obrazovku"
 
 # action entry
-#: ../src/xviewer-window.c:4221
+#: ../src/xviewer-window.c:4358
 msgid "Pause Slideshow"
 msgstr "Prerušiť prezentáciu"
 
 # tooltip
-#: ../src/xviewer-window.c:4222
+#: ../src/xviewer-window.c:4359
 msgid "Pause or resume the slideshow"
 msgstr "Preruší alebo pokračuje v prezentácii"
 
 # action entry
-#: ../src/xviewer-window.c:4224
+#: ../src/xviewer-window.c:4361
 msgid "_Best Fit"
 msgstr "Na_jlepšia veľkosť"
 
 # tooltip
-#: ../src/xviewer-window.c:4225
+#: ../src/xviewer-window.c:4362
 msgid "Fit the image to the window"
 msgstr "Prispôsobí obrázok veľkosti okna"
 
 # action entry
-#: ../src/xviewer-window.c:4230 ../src/xviewer-window.c:4245
+#: ../src/xviewer-window.c:4367 ../src/xviewer-window.c:4382
 msgid "_Previous Image"
 msgstr "_Predchádzajúci obrázok"
 
 # tooltip
-#: ../src/xviewer-window.c:4231
+#: ../src/xviewer-window.c:4368
 msgid "Go to the previous image of the gallery"
 msgstr "Prejde na predchádzajúci obrázok galérie"
 
 # action entry
-#: ../src/xviewer-window.c:4233
+#: ../src/xviewer-window.c:4370
 msgid "_Next Image"
 msgstr "_Nasledujúci obrázok"
 
 # tooltip
-#: ../src/xviewer-window.c:4234
+#: ../src/xviewer-window.c:4371
 msgid "Go to the next image of the gallery"
 msgstr "Prejde na nasledujúci obrázok galérie"
 
 # action entry
-#: ../src/xviewer-window.c:4236 ../src/xviewer-window.c:4248
+#: ../src/xviewer-window.c:4373 ../src/xviewer-window.c:4385
 msgid "_First Image"
 msgstr "P_rvý obrázok"
 
 # tooltip
-#: ../src/xviewer-window.c:4237
+#: ../src/xviewer-window.c:4374
 msgid "Go to the first image of the gallery"
 msgstr "Prejde na prvý obrázok galérie"
 
 # action entry
-#: ../src/xviewer-window.c:4239 ../src/xviewer-window.c:4251
+#: ../src/xviewer-window.c:4376 ../src/xviewer-window.c:4388
 msgid "_Last Image"
 msgstr "Po_sledný obrázok"
 
 # tooltip
-#: ../src/xviewer-window.c:4240
+#: ../src/xviewer-window.c:4377
 msgid "Go to the last image of the gallery"
 msgstr "Prejde na posledný obrázok galérie"
 
 # action entry
-#: ../src/xviewer-window.c:4242
+#: ../src/xviewer-window.c:4379
 msgid "_Random Image"
 msgstr "Ná_hodný obrázok"
 
 # tooltip
-#: ../src/xviewer-window.c:4243
+#: ../src/xviewer-window.c:4380
 msgid "Go to a random image of the gallery"
 msgstr "Prejde na náhodný obrázok galérie"
 
 # action entry
-#: ../src/xviewer-window.c:4401
+#: ../src/xviewer-window.c:4538
 msgid "S_lideshow"
 msgstr "_Prezentácia"
 
 # tooltip
-#: ../src/xviewer-window.c:4402
+#: ../src/xviewer-window.c:4539
 msgid "Start a slideshow view of the images"
 msgstr "Spustí režim prezentácie na prezeranie obrázkov"
 
 # action
-#: ../src/xviewer-window.c:4474
+#: ../src/xviewer-window.c:4611
 msgid "Previous"
 msgstr "Predchádzajúci"
 
 # action
-#: ../src/xviewer-window.c:4479
+#: ../src/xviewer-window.c:4616
 msgid "Next"
 msgstr "Nasledujúci"
 
 # action
-#: ../src/xviewer-window.c:4486
+#: ../src/xviewer-window.c:4623
 msgid "Right"
 msgstr "Vpravo"
 
 # action
-#: ../src/xviewer-window.c:4489
+#: ../src/xviewer-window.c:4626
 msgid "Left"
 msgstr "Vľavo"
 
 # action
-#: ../src/xviewer-window.c:4492
+#: ../src/xviewer-window.c:4629
 msgid "Show Folder"
 msgstr "Zobraziť priečinok"
 
 # action
-#: ../src/xviewer-window.c:4495
+#: ../src/xviewer-window.c:4632
 msgid "Out"
 msgstr "Zmenšiť"
 
 # action
-#: ../src/xviewer-window.c:4498
+#: ../src/xviewer-window.c:4635
 msgid "In"
 msgstr "Zväčšiť"
 
 # action
-#: ../src/xviewer-window.c:4501
+#: ../src/xviewer-window.c:4638
 msgid "Normal"
 msgstr "Normálne"
 
+#: ../src/xviewer-window.c:4641
+msgid "Height"
+msgstr ""
+
+#: ../src/xviewer-window.c:4644
+msgid "Width"
+msgstr ""
+
 # action
-#: ../src/xviewer-window.c:4504
+#: ../src/xviewer-window.c:4647
 msgid "Fit"
 msgstr "Prispôsobiť"
 
 # action
-#: ../src/xviewer-window.c:4507
+#: ../src/xviewer-window.c:4650
 msgid "Gallery"
 msgstr "Galéria"
 
 # action
-#: ../src/xviewer-window.c:4524
+#: ../src/xviewer-window.c:4667
 msgctxt "action (to trash)"
 msgid "Trash"
 msgstr "Do Koša"
