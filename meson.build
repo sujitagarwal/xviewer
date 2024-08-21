@@ -1,4 +1,4 @@
-project('xviewer', 'c', version: '3.2.4', meson_version: '>= 0.49')
+project('xviewer', 'c', version : '3.4.6', meson_version : '>= 0.49')
 
 version = meson.project_version()
 
@@ -35,6 +35,7 @@ i18n = import('i18n')
 pkgconfig = import('pkgconfig')
 
 # dependencies
+gio_unix = dependency('gio-unix-2.0', version: '>= 2.38.0')
 glib = dependency('glib-2.0', version: '>= 2.38.0')
 gtk = dependency('gtk+-3.0')
 libpeas = dependency('libpeas-1.0', version: '>= 0.7.4')
@@ -43,7 +44,7 @@ pixbuf = dependency('gdk-pixbuf-2.0', version: '>= 2.19.1')
 X11 = dependency('x11')
 zlib = dependency('zlib')
 cinnamon_desktop = dependency('cinnamon-desktop', version: '>= 3.2.0')
-xapp = dependency('xapp', version: '>= 1.9.0')
+xapp = dependency('xapp', version: '>= 2.5.0')
 
 cc = meson.get_compiler('c')
 

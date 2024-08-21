@@ -1,3 +1,122 @@
+xviewer (3.4.6) wilma; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 21 Jul 2024 11:02:04 +0100
+
+xviewer (3.4.5) wilma; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 18 Jun 2024 21:01:35 +0100
+
+xviewer (3.4.4) virginia; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 04 Jan 2024 17:10:09 +0000
+
+xviewer (3.4.3) virginia; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 03 Dec 2023 15:23:36 +0000
+
+xviewer (3.4.2) virginia; urgency=medium
+
+  [ Hiers ]
+  * Fix potential infinite while loop and interpreting unsigned int as signed.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 28 Nov 2023 11:18:37 +0000
+
+xviewer (3.4.1) victoria; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 08 Jun 2023 12:09:50 +0100
+
+xviewer (3.4.0) victoria; urgency=medium
+
+  * Add AVIF and HEIF support.
+  * Add dark mode support
+
+ -- Clement Lefebvre <root@linuxmint.com>  Thu, 01 Jun 2023 10:34:17 +0100
+
+xviewer (3.2.12) vera; urgency=medium
+
+  [ Vladimir Didenko ]
+  * Use upper case names for boolean constants (False -> FALSE, True -> TRUE). Not all distros support not-upper case variant (#178)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sat, 07 Jan 2023 16:02:53 +0000
+
+xviewer (3.2.11) vera; urgency=medium
+
+  [ Michael Webster ]
+  * Use github actions for CI builds.
+
+  [ programmer-ceds ]
+  * Handle repeated prev/next keys  (#172)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 21 Nov 2022 16:21:54 +0000
+
+xviewer (3.2.10) vanessa; urgency=medium
+
+  [ programmer-ceds ]
+  * Fix Batch Save - issue #168 (#169)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 01 Aug 2022 16:02:52 +0200
+
+xviewer (3.2.9) vanessa; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Sun, 24 Jul 2022 12:41:00 +0200
+
+xviewer (3.2.8) vanessa; urgency=medium
+
+  [ Bobby Rong ]
+  * build: add missing gio-unix-2.0 dependency (#170)
+
+ -- Clement Lefebvre <root@linuxmint.com>  Wed, 20 Jul 2022 08:07:54 +0200
+
+xviewer (3.2.7) vanessa; urgency=medium
+
+  [ Michael Webster ]
+  * Add webp support.
+
+ -- Clement Lefebvre <root@linuxmint.com>  Fri, 01 Jul 2022 16:17:32 +0200
+
+xviewer (3.2.6) vanessa; urgency=medium
+
+  * CI: Update targets
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 27 Jun 2022 14:23:33 +0200
+
+xviewer (3.2.5) vanessa; urgency=medium
+
+  [ okaestne ]
+  * Port to meson
+  * control: capitalize Xviewer in package desc
+  * fix lintian warnings
+  * update AppStream metadata
+  * Use meson's i18n.merge_file (gettext) ... instead of intltool-merge.
+  * Add README.md with general information and build steps
+
+  [ Oliver Kästner ]
+  * build: add install scripts for non-debian builds (#158)
+
+  [ okaestne ]
+  * remove unused variables
+  * fix misleading-indentation warnings
+  * fix/add checked type casts
+  * fix: move .typelib and .gir dirs into private dir
+
+  [ programmer-ceds ]
+  * Handle repeated prev and next keys (#164)
+
+ -- Clement Lefebvre <clem@macbook>  Sat, 11 Jun 2022 13:01:41 +0200
+
 xviewer (3.2.4) una; urgency=medium
 
   * l10n: Update translations
